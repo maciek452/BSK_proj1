@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import sample.cipher.User;
 
 import java.io.File;
 import java.net.URL;
@@ -15,15 +16,13 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
-    private Stage stage;
-    private Task encryptionTask, decryptionTask;
-    private File encryptInputFile, encryptOutputFile, decryptInputFile, decryptOutputFile;
-
     //Lists
     public static final ObservableList<User> listReceiverEncrypt = FXCollections.observableArrayList();
     public static final ObservableList<User> listReceiverDecrypt = FXCollections.observableArrayList();
     public static final ObservableList<TextArea> textAreasPathsList = FXCollections.observableArrayList();
-
+    private Stage stage;
+    private Task encryptionTask, decryptionTask;
+    private File encryptInputFile, encryptOutputFile, decryptInputFile, decryptOutputFile;
     //ChoiceBoxes
     @FXML
     private ChoiceBox modeChoiceBox;
@@ -104,46 +103,49 @@ public class Controller implements Initializable {
     }
 
 
-    public void chooseEncryptInputFile(){
+    public void chooseEncryptInputFile() {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Resource File");
+        fileChooser.setTitle("Wybierz plik do zaszyfrowania");
         encryptInputFile = fileChooser.showOpenDialog(stage);
         encryptInTextArea.setText(encryptInputFile.getPath());
     }
 
-    public void chooseEncryptOutputFile(){
-
-    }
-    public void chooseDecryptInputFile(){
-
-    }
-    public void chooseDecryptOutputFile(){
-
+    public void chooseEncryptOutputFile() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Wybierz lokalizację zapisania wynikowego pliku");
+        encryptOutputFile = fileChooser.showSaveDialog(stage);
+        encryptOutTextArea.setText(encryptOutputFile.getPath());
     }
 
-    public void openAddReceiverStage(){
-        AddReceiverStage.display();
+    public void chooseDecryptInputFile() {
+
+    }
+
+    public void chooseDecryptOutputFile() {
+
+    }
+
+    public void openAddReceiverStage() {
+        AddUserStage.display();
     }
 
 
-
-    private void initializeChoiceBoxes(){
+    private void initializeChoiceBoxes() {
         modeChoiceBox.setItems(FXCollections.observableArrayList("ECB", "CBC", "CFB", "OFB"));
         modeChoiceBox.getSelectionModel().selectFirst();
         modeChoiceBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            String cipherMode = newValue.toString();
-            if ((cipherMode.equals("CFB")) || (cipherMode.equals("OFB"))) {
+            if ((newValue.equals("CFB")) || (newValue.equals("OFB"))) {
                 subblockChoiceBox.setDisable(false);
             } else {
                 subblockChoiceBox.setDisable(true);
             }
         });
-        subblockChoiceBox.setItems(FXCollections.observableArrayList(new Integer[]{Integer.valueOf(8), Integer.valueOf(16), Integer.valueOf(24), Integer.valueOf(32), Integer.valueOf(48)}));
+        subblockChoiceBox.setItems(FXCollections.observableArrayList(8, 16, 24, 32, 48));
         subblockChoiceBox.getSelectionModel().selectFirst();
         subblockChoiceBox.setDisable(true);
     }
 
-    private void initializeCredits(){
+    private void initializeCredits() {
         creatorsMenuItem.setOnAction(e -> About.display("Twórca programu", "tworca"));
         algorithmDescriptionMenuItem.setOnAction(e -> About.display("Opis Algorytmu", "opis"));
     }
