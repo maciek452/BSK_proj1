@@ -72,3 +72,10 @@ fabric.properties
 
 # Editor-based Rest Client
 .idea/httpRequests
+
+# Product Files
+target/
+
+# Custom files
+KeyPair/
+Testing/

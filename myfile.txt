@@ -1,228 +1,1 @@
-aaaa BSK to zło<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-               <EncryptedFileHeader>
-                   <Algorithm>Blowfish</Algorithm>
-                   <KeySize>80</KeySize>
-                   <BlockSize>128</BlockSize>
-                   <CipherMode>CFB</CipherMode>
-                   <IV>dupa</IV>
-                   <ApprovedUsers>
-                       <User>
-                           <Email>maciek.dupa</Email>
-                           <SessionKey>iVedux7Dv6jJ/Z4mViVyxFIdSoAZnmeVi1RrY/g7jPvE1zChO1jlL37+8pFqqhJJ2gTfAmQ9X+/6D/iHDoHUha/+VYIKHTvPZpEGgKnM7TR7eyk5jj2oHxjpxD7viToYFjDmTClUkoTgbNZJJtEHLn8U54+G1GUl5/mHt3R88x9QlWYFMef/MDZoa+HiK5SpDUwFxM1N9L/DR489Pbu57hSI4OV2xtDx2tKLFA+Qgnk+SK6Oki2b2Lmt20NI0XxNZjR69pTLx50RHMSKh7mb+rpeDOuE55IALyO54OMjjNovoGKqQ1fgMRcpv7rnyQyowZq7c8OAG5rngTT0LNrgZA==</SessionKey>
-                       </User>
-                   </ApprovedUsers>
-               </EncryptedFileHeader>
-               T¶[:YŐ‚/Ö·Ł
-               €<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                 <EncryptedFileHeader>
-                     <Algorithm>Blowfish</Algorithm>
-                     <KeySize>80</KeySize>
-                     <BlockSize>128</BlockSize>
-                     <CipherMode>CFB</CipherMode>
-                     <IV>dupa</IV>
-                     <ApprovedUsers>
-                         <User>
-                             <Email>maciek.dupa</Email>
-                             <SessionKey>iVedux7Dv6jJ/Z4mViVyxFIdSoAZnmeVi1RrY/g7jPvE1zChO1jlL37+8pFqqhJJ2gTfAmQ9X+/6D/iHDoHUha/+VYIKHTvPZpEGgKnM7TR7eyk5jj2oHxjpxD7viToYFjDmTClUkoTgbNZJJtEHLn8U54+G1GUl5/mHt3R88x9QlWYFMef/MDZoa+HiK5SpDUwFxM1N9L/DR489Pbu57hSI4OV2xtDx2tKLFA+Qgnk+SK6Oki2b2Lmt20NI0XxNZjR69pTLx50RHMSKh7mb+rpeDOuE55IALyO54OMjjNovoGKqQ1fgMRcpv7rnyQyowZq7c8OAG5rngTT0LNrgZA==</SessionKey>
-                         </User>
-                     </ApprovedUsers>
-                 </EncryptedFileHeader>
-                 T¶[:YŐ‚/Ö·Ł
-                 €<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                   <EncryptedFileHeader>
-                       <Algorithm>Blowfish</Algorithm>
-                       <KeySize>80</KeySize>
-                       <BlockSize>128</BlockSize>
-                       <CipherMode>CFB</CipherMode>
-                       <IV>dupa</IV>
-                       <ApprovedUsers>
-                           <User>
-                               <Email>maciek.dupa</Email>
-                               <SessionKey>iVedux7Dv6jJ/Z4mViVyxFIdSoAZnmeVi1RrY/g7jPvE1zChO1jlL37+8pFqqhJJ2gTfAmQ9X+/6D/iHDoHUha/+VYIKHTvPZpEGgKnM7TR7eyk5jj2oHxjpxD7viToYFjDmTClUkoTgbNZJJtEHLn8U54+G1GUl5/mHt3R88x9QlWYFMef/MDZoa+HiK5SpDUwFxM1N9L/DR489Pbu57hSI4OV2xtDx2tKLFA+Qgnk+SK6Oki2b2Lmt20NI0XxNZjR69pTLx50RHMSKh7mb+rpeDOuE55IALyO54OMjjNovoGKqQ1fgMRcpv7rnyQyowZq7c8OAG5rngTT0LNrgZA==</SessionKey>
-                           </User>
-                       </ApprovedUsers>
-                   </EncryptedFileHeader>
-                   T¶[:YŐ‚/Ö·Ł
-                   €<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                     <EncryptedFileHeader>
-                         <Algorithm>Blowfish</Algorithm>
-                         <KeySize>80</KeySize>
-                         <BlockSize>128</BlockSize>
-                         <CipherMode>CFB</CipherMode>
-                         <IV>dupa</IV>
-                         <ApprovedUsers>
-                             <User>
-                                 <Email>maciek.dupa</Email>
-                                 <SessionKey>iVedux7Dv6jJ/Z4mViVyxFIdSoAZnmeVi1RrY/g7jPvE1zChO1jlL37+8pFqqhJJ2gTfAmQ9X+/6D/iHDoHUha/+VYIKHTvPZpEGgKnM7TR7eyk5jj2oHxjpxD7viToYFjDmTClUkoTgbNZJJtEHLn8U54+G1GUl5/mHt3R88x9QlWYFMef/MDZoa+HiK5SpDUwFxM1N9L/DR489Pbu57hSI4OV2xtDx2tKLFA+Qgnk+SK6Oki2b2Lmt20NI0XxNZjR69pTLx50RHMSKh7mb+rpeDOuE55IALyO54OMjjNovoGKqQ1fgMRcpv7rnyQyowZq7c8OAG5rngTT0LNrgZA==</SessionKey>
-                             </User>
-                         </ApprovedUsers>
-                     </EncryptedFileHeader>
-                     T¶[:YŐ‚/Ö·Ł
-                     €<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                       <EncryptedFileHeader>
-                           <Algorithm>Blowfish</Algorithm>
-                           <KeySize>80</KeySize>
-                           <BlockSize>128</BlockSize>
-                           <CipherMode>CFB</CipherMode>
-                           <IV>dupa</IV>
-                           <ApprovedUsers>
-                               <User>
-                                   <Email>maciek.dupa</Email>
-                                   <SessionKey>iVedux7Dv6jJ/Z4mViVyxFIdSoAZnmeVi1RrY/g7jPvE1zChO1jlL37+8pFqqhJJ2gTfAmQ9X+/6D/iHDoHUha/+VYIKHTvPZpEGgKnM7TR7eyk5jj2oHxjpxD7viToYFjDmTClUkoTgbNZJJtEHLn8U54+G1GUl5/mHt3R88x9QlWYFMef/MDZoa+HiK5SpDUwFxM1N9L/DR489Pbu57hSI4OV2xtDx2tKLFA+Qgnk+SK6Oki2b2Lmt20NI0XxNZjR69pTLx50RHMSKh7mb+rpeDOuE55IALyO54OMjjNovoGKqQ1fgMRcpv7rnyQyowZq7c8OAG5rngTT0LNrgZA==</SessionKey>
-                               </User>
-                           </ApprovedUsers>
-                       </EncryptedFileHeader>
-                       T¶[:YŐ‚/Ö·Ł
-                       €<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                         <EncryptedFileHeader>
-                             <Algorithm>Blowfish</Algorithm>
-                             <KeySize>80</KeySize>
-                             <BlockSize>128</BlockSize>
-                             <CipherMode>CFB</CipherMode>
-                             <IV>dupa</IV>
-                             <ApprovedUsers>
-                                 <User>
-                                     <Email>maciek.dupa</Email>
-                                     <SessionKey>iVedux7Dv6jJ/Z4mViVyxFIdSoAZnmeVi1RrY/g7jPvE1zChO1jlL37+8pFqqhJJ2gTfAmQ9X+/6D/iHDoHUha/+VYIKHTvPZpEGgKnM7TR7eyk5jj2oHxjpxD7viToYFjDmTClUkoTgbNZJJtEHLn8U54+G1GUl5/mHt3R88x9QlWYFMef/MDZoa+HiK5SpDUwFxM1N9L/DR489Pbu57hSI4OV2xtDx2tKLFA+Qgnk+SK6Oki2b2Lmt20NI0XxNZjR69pTLx50RHMSKh7mb+rpeDOuE55IALyO54OMjjNovoGKqQ1fgMRcpv7rnyQyowZq7c8OAG5rngTT0LNrgZA==</SessionKey>
-                                 </User>
-                             </ApprovedUsers>
-                         </EncryptedFileHeader>
-                         T¶[:YŐ‚/Ö·Ł
-                         €<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                           <EncryptedFileHeader>
-                               <Algorithm>Blowfish</Algorithm>
-                               <KeySize>80</KeySize>
-                               <BlockSize>128</BlockSize>
-                               <CipherMode>CFB</CipherMode>
-                               <IV>dupa</IV>
-                               <ApprovedUsers>
-                                   <User>
-                                       <Email>maciek.dupa</Email>
-                                       <SessionKey>iVedux7Dv6jJ/Z4mViVyxFIdSoAZnmeVi1RrY/g7jPvE1zChO1jlL37+8pFqqhJJ2gTfAmQ9X+/6D/iHDoHUha/+VYIKHTvPZpEGgKnM7TR7eyk5jj2oHxjpxD7viToYFjDmTClUkoTgbNZJJtEHLn8U54+G1GUl5/mHt3R88x9QlWYFMef/MDZoa+HiK5SpDUwFxM1N9L/DR489Pbu57hSI4OV2xtDx2tKLFA+Qgnk+SK6Oki2b2Lmt20NI0XxNZjR69pTLx50RHMSKh7mb+rpeDOuE55IALyO54OMjjNovoGKqQ1fgMRcpv7rnyQyowZq7c8OAG5rngTT0LNrgZA==</SessionKey>
-                                   </User>
-                               </ApprovedUsers>
-                           </EncryptedFileHeader>
-                           T¶[:YŐ‚/Ö·Ł
-                           €<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                             <EncryptedFileHeader>
-                                 <Algorithm>Blowfish</Algorithm>
-                                 <KeySize>80</KeySize>
-                                 <BlockSize>128</BlockSize>
-                                 <CipherMode>CFB</CipherMode>
-                                 <IV>dupa</IV>
-                                 <ApprovedUsers>
-                                     <User>
-                                         <Email>maciek.dupa</Email>
-                                         <SessionKey>iVedux7Dv6jJ/Z4mViVyxFIdSoAZnmeVi1RrY/g7jPvE1zChO1jlL37+8pFqqhJJ2gTfAmQ9X+/6D/iHDoHUha/+VYIKHTvPZpEGgKnM7TR7eyk5jj2oHxjpxD7viToYFjDmTClUkoTgbNZJJtEHLn8U54+G1GUl5/mHt3R88x9QlWYFMef/MDZoa+HiK5SpDUwFxM1N9L/DR489Pbu57hSI4OV2xtDx2tKLFA+Qgnk+SK6Oki2b2Lmt20NI0XxNZjR69pTLx50RHMSKh7mb+rpeDOuE55IALyO54OMjjNovoGKqQ1fgMRcpv7rnyQyowZq7c8OAG5rngTT0LNrgZA==</SessionKey>
-                                     </User>
-                                 </ApprovedUsers>
-                             </EncryptedFileHeader>
-                             T¶[:YŐ‚/Ö·Ł
-                             €<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                               <EncryptedFileHeader>
-                                   <Algorithm>Blowfish</Algorithm>
-                                   <KeySize>80</KeySize>
-                                   <BlockSize>128</BlockSize>
-                                   <CipherMode>CFB</CipherMode>
-                                   <IV>dupa</IV>
-                                   <ApprovedUsers>
-                                       <User>
-                                           <Email>maciek.dupa</Email>
-                                           <SessionKey>iVedux7Dv6jJ/Z4mViVyxFIdSoAZnmeVi1RrY/g7jPvE1zChO1jlL37+8pFqqhJJ2gTfAmQ9X+/6D/iHDoHUha/+VYIKHTvPZpEGgKnM7TR7eyk5jj2oHxjpxD7viToYFjDmTClUkoTgbNZJJtEHLn8U54+G1GUl5/mHt3R88x9QlWYFMef/MDZoa+HiK5SpDUwFxM1N9L/DR489Pbu57hSI4OV2xtDx2tKLFA+Qgnk+SK6Oki2b2Lmt20NI0XxNZjR69pTLx50RHMSKh7mb+rpeDOuE55IALyO54OMjjNovoGKqQ1fgMRcpv7rnyQyowZq7c8OAG5rngTT0LNrgZA==</SessionKey>
-                                       </User>
-                                   </ApprovedUsers>
-                               </EncryptedFileHeader>
-                               T¶[:YŐ‚/Ö·Ł
-                               €
-                             <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                             <EncryptedFileHeader>
-                                 <Algorithm>Blowfish</Algorithm>
-                                 <KeySize>80</KeySize>
-                                 <BlockSize>128</BlockSize>
-                                 <CipherMode>CFB</CipherMode>
-                                 <IV>dupa</IV>
-                                 <ApprovedUsers>
-                                     <User>
-                                         <Email>maciek.dupa</Email>
-                                         <SessionKey>iVedux7Dv6jJ/Z4mViVyxFIdSoAZnmeVi1RrY/g7jPvE1zChO1jlL37+8pFqqhJJ2gTfAmQ9X+/6D/iHDoHUha/+VYIKHTvPZpEGgKnM7TR7eyk5jj2oHxjpxD7viToYFjDmTClUkoTgbNZJJtEHLn8U54+G1GUl5/mHt3R88x9QlWYFMef/MDZoa+HiK5SpDUwFxM1N9L/DR489Pbu57hSI4OV2xtDx2tKLFA+Qgnk+SK6Oki2b2Lmt20NI0XxNZjR69pTLx50RHMSKh7mb+rpeDOuE55IALyO54OMjjNovoGKqQ1fgMRcpv7rnyQyowZq7c8OAG5rngTT0LNrgZA==</SessionKey>
-                                     </User>
-                                 </ApprovedUsers>
-                             </EncryptedFileHeader>
-                             T¶[:YŐ‚/Ö·Ł
-                             €<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                               <EncryptedFileHeader>
-                                   <Algorithm>Blowfish</Algorithm>
-                                   <KeySize>80</KeySize>
-                                   <BlockSize>128</BlockSize>
-                                   <CipherMode>CFB</CipherMode>
-                                   <IV>dupa</IV>
-                                   <ApprovedUsers>
-                                       <User>
-                                           <Email>maciek.dupa</Email>
-                                           <SessionKey>iVedux7Dv6jJ/Z4mViVyxFIdSoAZnmeVi1RrY/g7jPvE1zChO1jlL37+8pFqqhJJ2gTfAmQ9X+/6D/iHDoHUha/+VYIKHTvPZpEGgKnM7TR7eyk5jj2oHxjpxD7viToYFjDmTClUkoTgbNZJJtEHLn8U54+G1GUl5/mHt3R88x9QlWYFMef/MDZoa+HiK5SpDUwFxM1N9L/DR489Pbu57hSI4OV2xtDx2tKLFA+Qgnk+SK6Oki2b2Lmt20NI0XxNZjR69pTLx50RHMSKh7mb+rpeDOuE55IALyO54OMjjNovoGKqQ1fgMRcpv7rnyQyowZq7c8OAG5rngTT0LNrgZA==</SessionKey>
-                                       </User>
-                                   </ApprovedUsers>
-                               </EncryptedFileHeader>
-                               T¶[:YŐ‚/Ö·Ł
-                               €<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-                                 <EncryptedFileHeader>
-                                     <Algorithm>Blowfish</Algorithm>
-                                     <KeySize>80</KeySize>
-                                     <BlockSize>128</BlockSize>
-                                     <CipherMode>CFB</CipherMode>
-                                     <IV>dupa</IV>
-                                     <ApprovedUsers>
-                                         <User>
-                                             <Email>maciek.dupa</Email>
-                                             <SessionKey>iVedux7Dv6jJ/Z4mViVyxFIdSoAZnmeVi1RrY/g7jPvE1zChO1jlL37+8pFqqhJJ2gTfAmQ9X+/6D/iHDoHUha/+VYIKHTvPZpEGgKnM7TR7eyk5jj2oHxjpxD7viToYFjDmTClUkoTgbNZJJtEHLn8U54+G1GUl5/mHt3R88x9QlWYFMef/MDZoa+HiK5SpDUwFxM1N9L/DR489Pbu57hSI4OV2xtDx2tKLFA+Qgnk+SK6Oki2b2Lmt20NI0XxNZjR69pTLx50RHMSKh7mb+rpeDOuE55IALyO54OMjjNovoGKqQ1fgMRcpv7rnyQyowZq7c8OAG5rngTT0LNrgZA==</SessionKey>
-                                         </User>
-                                     </ApprovedUsers>
-                                 </EncryptedFileHeader>
-                                 T¶[:YŐ‚/Ö·Ł
-                                 €
-    <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-    <EncryptedFileHeader>
-        <Algorithm>Blowfish</Algorithm>
-        <KeySize>80</KeySize>
-        <BlockSize>128</BlockSize>
-        <CipherMode>CFB</CipherMode>
-        <IV>dupa</IV>
-        <ApprovedUsers>
-            <User>
-                <Email>maciek.dupa</Email>
-                <SessionKey>iVedux7Dv6jJ/Z4mViVyxFIdSoAZnmeVi1RrY/g7jPvE1zChO1jlL37+8pFqqhJJ2gTfAmQ9X+/6D/iHDoHUha/+VYIKHTvPZpEGgKnM7TR7eyk5jj2oHxjpxD7viToYFjDmTClUkoTgbNZJJtEHLn8U54+G1GUl5/mHt3R88x9QlWYFMef/MDZoa+HiK5SpDUwFxM1N9L/DR489Pbu57hSI4OV2xtDx2tKLFA+Qgnk+SK6Oki2b2Lmt20NI0XxNZjR69pTLx50RHMSKh7mb+rpeDOuE55IALyO54OMjjNovoGKqQ1fgMRcpv7rnyQyowZq7c8OAG5rngTT0LNrgZA==</SessionKey>
-            </User>
-        </ApprovedUsers>
-    </EncryptedFileHeader>
-    T¶[:YŐ‚/Ö·Ł
-    €<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-      <EncryptedFileHeader>
-          <Algorithm>Blowfish</Algorithm>
-          <KeySize>80</KeySize>
-          <BlockSize>128</BlockSize>
-          <CipherMode>CFB</CipherMode>
-          <IV>dupa</IV>
-          <ApprovedUsers>
-              <User>
-                  <Email>maciek.dupa</Email>
-                  <SessionKey>iVedux7Dv6jJ/Z4mViVyxFIdSoAZnmeVi1RrY/g7jPvE1zChO1jlL37+8pFqqhJJ2gTfAmQ9X+/6D/iHDoHUha/+VYIKHTvPZpEGgKnM7TR7eyk5jj2oHxjpxD7viToYFjDmTClUkoTgbNZJJtEHLn8U54+G1GUl5/mHt3R88x9QlWYFMef/MDZoa+HiK5SpDUwFxM1N9L/DR489Pbu57hSI4OV2xtDx2tKLFA+Qgnk+SK6Oki2b2Lmt20NI0XxNZjR69pTLx50RHMSKh7mb+rpeDOuE55IALyO54OMjjNovoGKqQ1fgMRcpv7rnyQyowZq7c8OAG5rngTT0LNrgZA==</SessionKey>
-              </User>
-          </ApprovedUsers>
-      </EncryptedFileHeader>
-      T¶[:YŐ‚/Ö·Ł
-      €<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-        <EncryptedFileHeader>
-            <Algorithm>Blowfish</Algorithm>
-            <KeySize>80</KeySize>
-            <BlockSize>128</BlockSize>
-            <CipherMode>CFB</CipherMode>
-            <IV>dupa</IV>
-            <ApprovedUsers>
-                <User>
-                    <Email>maciek.dupa</Email>
-                    <SessionKey>iVedux7Dv6jJ/Z4mViVyxFIdSoAZnmeVi1RrY/g7jPvE1zChO1jlL37+8pFqqhJJ2gTfAmQ9X+/6D/iHDoHUha/+VYIKHTvPZpEGgKnM7TR7eyk5jj2oHxjpxD7viToYFjDmTClUkoTgbNZJJtEHLn8U54+G1GUl5/mHt3R88x9QlWYFMef/MDZoa+HiK5SpDUwFxM1N9L/DR489Pbu57hSI4OV2xtDx2tKLFA+Qgnk+SK6Oki2b2Lmt20NI0XxNZjR69pTLx50RHMSKh7mb+rpeDOuE55IALyO54OMjjNovoGKqQ1fgMRcpv7rnyQyowZq7c8OAG5rngTT0LNrgZA==</SessionKey>
-                </User>
-            </ApprovedUsers>
-        </EncryptedFileHeader>
-        T¶[:YŐ‚/Ö·Ł
-        €
+dupa
