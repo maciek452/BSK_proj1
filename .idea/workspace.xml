@@ -2,37 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sample/cipher/BlowfishEncryption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sample/cipher/RSAKeyEncoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sample/cipher/UsersRegistrar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sample/cipher/Blowfish.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sample/cipher/SessionKeyEncryptor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KeyPair/notEncPrivateKey/qqq" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KeyPair/password/userName" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KeyPair/privateKey/qqq" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KeyPair/publicKey/qqq" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KeyPair/text_decrypted.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/decryptedFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/decryptedFile.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/encrypted.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/myOututFile" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/myfile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/myfile.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pathname" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/About.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/About.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/AddUserStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/AddUserStage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/Constants/Modes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/Constants/Modes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/cipher/AsymmetricCryptography.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/cipher/BlowfishEncrypt.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/cipher/BlowfishEncryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/cipher/BlowfishEncryption.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/cipher/FileEncryptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/cipher/FileEncryptor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/cipher/FileHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/cipher/FileHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/cipher/GenerateKeys.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/cipher/KeysGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/cipher/RSA.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/cipher/RSAKeyEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/cipher/SHAKeyEncoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/cipher/SessionKeyGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/cipher/SessionKeyGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/cipher/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/cipher/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sample/About.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sample/About.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sample/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/sample/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/cipher/UsersRegistrar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/cipher/UsersRegistrar.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -91,23 +73,56 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UsersRegistrar.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/UsersRegistrar.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="26" selection-end-column="93" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BlowfishEncryption.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BlowfishEncryption.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/BlowfishEncryption.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="150" selection-start-line="150" selection-end-line="150" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SessionKeyGenerator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/SessionKeyGenerator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SessionKeyEncryptor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/SessionKeyEncryptor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="38" column="26" lean-forward="true" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Modes.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/Constants/Modes.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="75" column="57" lean-forward="true" selection-start-line="75" selection-start-column="57" selection-end-line="75" selection-end-column="57" />
+              <caret line="11" column="53" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileEncryptor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/FileEncryptor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="3" selection-start-column="3" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,25 +130,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/User.java">
+      <file leaf-file-name="Test.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#270#271#0" expanded="true" />
-                <element signature="e#298#299#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RSAKeyEncoder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/RSAKeyEncoder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
-              <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+            <state relative-caret-position="210">
+              <caret line="51" column="53" selection-start-line="51" selection-start-column="53" selection-end-line="51" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -144,8 +145,8 @@
       <file leaf-file-name="FileHeader.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/FileHeader.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="470">
-              <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
+            <state relative-caret-position="295">
+              <caret line="98" column="47" lean-forward="true" selection-start-line="98" selection-start-column="47" selection-end-line="98" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -153,11 +154,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileEncryptor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/FileEncryptor.java">
+      <file leaf-file-name="UsersRegistrar.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/UsersRegistrar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1615">
-              <caret line="98" column="26" selection-start-line="98" selection-start-column="26" selection-end-line="98" selection-end-column="26" />
+            <state relative-caret-position="255">
+              <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -165,11 +166,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/sample/Test.java">
+      <file leaf-file-name="Blowfish.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/Blowfish.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="59" selection-start-line="59" selection-end-line="59" />
+            <state relative-caret-position="527">
+              <caret line="52" column="56" selection-start-line="52" selection-start-column="56" selection-end-line="52" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -190,7 +191,7 @@
     <findStrings>
       <find>IDEA</find>
       <find>Hasło</find>
-      <find>Controller\(\)\{\n    \n\}</find>
+      <find />
       <find>tryb</find>
       <find>choice</find>
       <find>cho</find>
@@ -207,6 +208,9 @@
       <find>choose</find>
       <find>łł</find>
       <find>ini</find>
+      <find>createCipher</find>
+      <find>Blow</find>
+      <find>SEss</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -243,24 +247,27 @@
         <option value="$PROJECT_DIR$/myfile.txt" />
         <option value="$PROJECT_DIR$/src/main/java/sample/cipher/RSAEncoder.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/cipher/GenerateKeys.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/cipher/FileEncryptor.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/cipher/KeysGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/cipher/RSA.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/cipher/RSAKeyEncoder.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/cipher/SessionKeyGenerator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/Constants/Modes.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/About.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/AddUserStage.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/cipher/AsymmetricCryptography.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/cipher/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/cipher/BlowfishEncrypt.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/cipher/FileHeader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/cipher/BlowfishEncryptor.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/cipher/UsersRegistrar.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/cipher/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/cipher/SHAKeyEncoder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/cipher/FileHeader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/cipher/SessionKeyEncryptor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/cipher/FileEncryptor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/cipher/Blowfish.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/cipher/SessionKeyGenerator.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/cipher/BlowfishEncryption.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/Constants/Modes.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/Test.java" />
       </list>
     </option>
   </component>
@@ -281,7 +288,7 @@
     <packageJsonPaths />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -300,7 +307,6 @@
     <panes>
       <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -356,14 +362,14 @@
               <item name="BSK_proj1" type="b2602c69:ProjectViewProjectNode" />
               <item name="BSK_proj1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BSK_proj1" type="b2602c69:ProjectViewProjectNode" />
               <item name="BSK_proj1" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BSK_proj1" type="b2602c69:ProjectViewProjectNode" />
@@ -373,6 +379,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -419,6 +426,11 @@
   <component name="RunManager" selected="Application.Test">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+    </configuration>
+    <configuration name="Blowfish" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="sample.cipher.Blowfish" />
+      <module name="BSK_proj1" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="sample.Main" />
@@ -507,6 +519,7 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Test" />
+      <item itemvalue="Application.Blowfish" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -535,12 +548,13 @@
       <workItem from="1525181710570" duration="61000" />
       <workItem from="1525181851698" duration="17985000" />
       <workItem from="1525518983150" duration="9820000" />
-      <workItem from="1525532578562" duration="9580000" />
+      <workItem from="1525532578562" duration="15220000" />
+      <workItem from="1525623327665" duration="9284000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94229000" />
+    <option name="totallyTimeSpent" value="109153000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -548,27 +562,27 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.4978038" weight="0.3802817" />
+      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49707174" weight="0.3802817" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.38506588" side_tool="true" visible="true" weight="0.31298906" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.39019033" side_tool="true" visible="true" weight="0.31298906" />
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6149341" visible="true" weight="0.31298906" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.60980964" visible="true" weight="0.31298906" />
       <window_info anchor="bottom" id="Terminal" order="13" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.19912152" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.19912152" />
       <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49926794" weight="0.5743349" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49853587" weight="0.5743349" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4978038" weight="0.39906102" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49487555" weight="0.39906102" />
       <window_info anchor="right" id="JetGradle" order="6" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -593,15 +607,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/sample/Test.java</url>
-          <line>57</line>
-          <properties />
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="12" />
+      <option name="time" value="18" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -609,45 +615,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#277#278#0" expanded="true" />
-            <element signature="e#311#312#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/BlowfishEncryption.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/AddUserStage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/UsersRegistrar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/SessionKeyGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -679,9 +646,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1479">
           <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -691,8 +655,6 @@
           <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#277#278#0" expanded="true" />
-            <element signature="e#311#312#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -919,13 +881,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/AddKey.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/myFile.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="411">
@@ -937,13 +892,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7418">
           <caret line="469" selection-start-line="469" selection-end-line="469" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Constants/Modes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -986,76 +934,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/AsymmetricCryptography.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/AsymmetricCryptography.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/KeysGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/SessionKeyGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="19" column="63" lean-forward="true" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/FileEncryptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1615">
-          <caret line="98" column="26" selection-start-line="98" selection-start-column="26" selection-end-line="98" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="-11">
+          <caret column="20" lean-forward="true" selection-start-column="20" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#270#271#0" expanded="true" />
-            <element signature="e#298#299#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/RSAKeyEncoder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+        <state relative-caret-position="272">
+          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/UsersRegistrar.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/SHAKeyEncoder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="26" selection-end-column="93" />
+        <state relative-caret-position="731">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="48" column="21" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/FileEncryptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1064,8 +981,65 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/FileHeader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="141" lean-forward="true" selection-start-line="141" selection-end-line="141" />
+        <state relative-caret-position="295">
+          <caret line="98" column="47" lean-forward="true" selection-start-line="98" selection-start-column="47" selection-end-line="98" selection-end-column="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/UsersRegistrar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Constants/Modes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="53" selection-start-line="11" selection-start-column="53" selection-end-line="11" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlowfishEncrypted.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BlowfishDecrypted.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/Blowfish.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="52" column="56" selection-start-line="52" selection-start-column="56" selection-end-line="52" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/SessionKeyEncryptor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="38" column="26" lean-forward="true" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/SessionKeyGenerator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="17" column="54" selection-start-line="17" selection-start-column="54" selection-end-line="17" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1074,8 +1048,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/cipher/BlowfishEncryption.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="75" column="57" lean-forward="true" selection-start-line="75" selection-start-column="57" selection-end-line="75" selection-end-column="57" />
+        <state relative-caret-position="274">
+          <caret line="150" selection-start-line="150" selection-end-line="150" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="51" column="53" selection-start-line="51" selection-start-column="53" selection-end-line="51" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

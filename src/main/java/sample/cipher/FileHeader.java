@@ -8,7 +8,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import sample.Constants.Modes;
 
-import javax.crypto.*;
+import javax.crypto.SecretKey;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -18,8 +18,6 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Base64;
 
@@ -34,6 +32,7 @@ public class FileHeader {
   private String cipherMode;
   private byte[] IV;
   private ArrayList<User> approvedUsers;
+  private byte[] sessionKey; //TODO: Remove
 
   public FileHeader(
       String algorithm,
@@ -76,6 +75,7 @@ public class FileHeader {
     if (!cipherMode.equals("ECB")) {
       IV = document.getElementsByTagName("IV").item(0).getFirstChild().getNodeValue().getBytes();
     }
+    sessionKey = document.getElementsByTagName("SessionKey").item(0).getFirstChild().getNodeValue().getBytes();
     NodeList userNodes = document.getElementsByTagName("User");
     for (int i = 0; i < userNodes.getLength(); i++) {
       Node userNode = userNodes.item(i);
@@ -87,7 +87,7 @@ public class FileHeader {
             userElement.getElementsByTagName("SessionKey").item(0).getFirstChild().getNodeValue();
         byte[] encryptedKey = Base64.getDecoder().decode(keyString);
         User u = new User(receiverName);
-        u.setEncryptedKey(encryptedKey);
+        u.setEncryptedSessionKey(encryptedKey);
         approvedUsers.add(u);
       }
     }
@@ -112,6 +112,7 @@ public class FileHeader {
       root = addSimpleChild(root, "BlockSize", Integer.toString(blockSize));
     root = addSimpleChild(root, "CipherMode", cipherMode);
     if (IV != null) root = addSimpleChild(root, "IV", new String(IV));
+    root = addSimpleChild(root, "SessionKey", Base64.getEncoder().encodeToString(sessionKey.getEncoded()));
 
     Element approvedUsersElement = document.createElement("ApprovedUsers");
     root.appendChild(approvedUsersElement);
@@ -141,33 +142,19 @@ public class FileHeader {
   }
 
   private Element addUser(Element approvedUsersElement, User user, SecretKey sessionKey) {
-    try {
-      Cipher rsa = Cipher.getInstance("RSA/ECB/OAEPWITHSHA-256ANDMGF1PADDING");
-      rsa.init(1, user.getPublicKey());
-      byte[] rsaEncodedSessionKey = rsa.doFinal(sessionKey.getEncoded());
-      Element userElement = document.createElement("User");
-      userElement = addSimpleChild(userElement, "Email", user.getEmail());
-      userElement =
-          addSimpleChild(
-              userElement, "SessionKey", Base64.getEncoder().encodeToString(rsaEncodedSessionKey));
-      approvedUsersElement.appendChild(userElement);
-    } catch (NoSuchAlgorithmException e) {
-      e.printStackTrace();
-    } catch (NoSuchPaddingException e) {
-      e.printStackTrace();
-    } catch (InvalidKeyException e) {
-      e.printStackTrace();
-    } catch (BadPaddingException e) {
-      e.printStackTrace();
-    } catch (IllegalBlockSizeException e) {
-      e.printStackTrace();
-    }
+    byte[] rsaEncodedSessionKey = SessionKeyEncryptor.encrypt(sessionKey, user);
+    Element userElement = document.createElement("User");
+    userElement = addSimpleChild(userElement, "Email", user.getEmail());
+    userElement =
+        addSimpleChild(
+            userElement, "SessionKey", Base64.getEncoder().encodeToString(rsaEncodedSessionKey));
+    approvedUsersElement.appendChild(userElement);
     return approvedUsersElement;
   }
 
   private Element addSimpleChild(Element root, String name, String value) {
     Element simpleChild = document.createElement(name);
-    simpleChild.appendChild(document.createTextNode(value.toString()));
+    simpleChild.appendChild(document.createTextNode(value));
     root.appendChild(simpleChild);
     return root;
   }

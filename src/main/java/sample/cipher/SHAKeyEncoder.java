@@ -6,7 +6,7 @@ import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class RSAKeyEncoder {
+public class SHAKeyEncoder {
 
   private static Cipher cipher;
 

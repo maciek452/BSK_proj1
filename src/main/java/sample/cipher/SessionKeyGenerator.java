@@ -15,7 +15,7 @@ public class SessionKeyGenerator {
 
     if (generator == null) {
       try {
-        generator = KeyGenerator.getInstance("AES");
+        generator = KeyGenerator.getInstance("Blowfish");
         SecureRandom secureRandom = new SecureRandom();
         Point point = MouseInfo.getPointerInfo().getLocation();
         secureRandom.setSeed(System.nanoTime() * point.x * point.y);

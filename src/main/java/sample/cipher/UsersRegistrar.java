@@ -19,7 +19,7 @@ public class UsersRegistrar {
     writeKeyToFile(
         "KeyPair" + File.separator + "notEncPrivateKey" + File.separator + userName,
         encodedPrivateKey);
-    byte[] encryptedPrivateKey = RSAKeyEncoder.encode(encodedPrivateKey, password);
+    byte[] encryptedPrivateKey = SHAKeyEncoder.encode(encodedPrivateKey, password);
     writeKeyToFile(
         "KeyPair" + File.separator + "privateKey" + File.separator + userName, encryptedPrivateKey);
     byte[] loadedKey =
@@ -37,7 +37,7 @@ public class UsersRegistrar {
   public static byte[] loadPrivateKey(String path, String password) {
     try {
       byte[] encryptedPrivateKey = Files.readAllBytes(Paths.get(path));
-      return RSAKeyEncoder.decode(encryptedPrivateKey, password);
+      return SHAKeyEncoder.decode(encryptedPrivateKey, password);
     } catch (IOException e) {
       e.printStackTrace();
     }
