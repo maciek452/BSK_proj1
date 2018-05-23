@@ -1,6 +1,7 @@
 package sample.cipher;
 
 import javax.crypto.*;
+import javax.crypto.spec.SecretKeySpec;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.interfaces.RSAPrivateKey;
@@ -26,11 +27,12 @@ public class SessionKeyEncryptor {
     return null;
   }
 
-  public static byte[] decrypt(byte[] encryptedSessionKey, RSAPrivateKey privateKey){
+  public static SecretKey decrypt(byte[] encryptedSessionKey, RSAPrivateKey privateKey){
     try {
       Cipher rsa = Cipher.getInstance("RSA/ECB/OAEPWITHSHA-256ANDMGF1PADDING");
       rsa.init(Cipher.DECRYPT_MODE, privateKey);
-      return rsa.doFinal(encryptedSessionKey);
+      byte[] decryptedKeyBytes = rsa.doFinal(encryptedSessionKey);
+      return new SecretKeySpec(decryptedKeyBytes, "Blowfish");
     } catch (NoSuchAlgorithmException e) {
       e.printStackTrace();
     } catch (NoSuchPaddingException e) {

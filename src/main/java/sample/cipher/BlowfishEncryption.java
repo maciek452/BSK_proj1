@@ -6,7 +6,6 @@ import javax.crypto.Cipher;
 import javax.crypto.CipherOutputStream;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,10 +18,10 @@ import java.security.InvalidKeyException;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
+import java.security.interfaces.RSAPrivateKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.ArrayList;
-import java.util.Base64;
 
 public class BlowfishEncryption {
 
@@ -52,7 +51,7 @@ public class BlowfishEncryption {
         while ((numBytesRead = inputStream.read(buffer)) >= 0) {
           cipherOutputStream.write(buffer, 0, numBytesRead);
           numBytesProcessed += numBytesRead;
-          System.out.println("Wykonano " + numBytesProcessed * 100.0 / outputFileSize + "%");
+          System.out.println("Zaszyfrowano " + numBytesProcessed * 100.0 / outputFileSize + "%");
           // TODO: update progress
         }
       } finally {
@@ -83,11 +82,9 @@ public class BlowfishEncryption {
       byte[] encryptedSessionKeyBytes = user.getEncryptedSessionKey();
       PrivateKey privateKey =
           KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(encodedPrivateKey));
-      // byte[] sessionKeyBytes2 = SessionKeyEncryptor.decrypt(encryptedSessionKeyBytes,
-      // (RSAPrivateKey) privateKey);
 
-      byte[] sessionKeyBytes = Base64.getDecoder().decode(fileHeader.getSessionKey());
-      SecretKey sessionKey = new SecretKeySpec(sessionKeyBytes, "Blowfish");
+      SecretKey sessionKey =
+          SessionKeyEncryptor.decrypt(encryptedSessionKeyBytes, (RSAPrivateKey) privateKey);
 
       Cipher cipher = createCipherForFilesEncrypt(fileHeader, sessionKey, Cipher.DECRYPT_MODE);
       CipherOutputStream decryptionStream = new CipherOutputStream(outputStream, cipher);

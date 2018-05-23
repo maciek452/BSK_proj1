@@ -9,9 +9,9 @@ import sample.cipher.User;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
+import java.security.KeyFactory;
 import java.security.interfaces.RSAPublicKey;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -42,10 +42,14 @@ public class Test {
     if (true) {
       String password = "maciek";
       ArrayList<User> users = new ArrayList<>();
-      KeyPairGenerator key_gen = KeyPairGenerator.getInstance("RSA");
-      key_gen.initialize(2048);
-      KeyPair keyPair = key_gen.generateKeyPair();
-      User user = new User("maciek", "maciek".getBytes(), (RSAPublicKey) keyPair.getPublic());
+      byte[] publicKeyBytes =
+          Files.readAllBytes(
+              Paths.get("KeyPair" + File.separator + "publicKey" + File.separator + "maciek"));
+      KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+      X509EncodedKeySpec publicKeySpec = new X509EncodedKeySpec(publicKeyBytes);
+      RSAPublicKey encodedPublicKey = (RSAPublicKey) keyFactory.generatePublic(publicKeySpec);
+
+      User user = new User("maciek", "maciek".getBytes(), encodedPublicKey);
 
       users.add(user);
       FileHeader fileHeader =
@@ -54,10 +58,6 @@ public class Test {
       BlowfishEncryption.encrypt(
           fileHeader, Paths.get("myfile.txt"), Paths.get("encryptedFile.txt"));
 
-      //      byte[] fileHeaderBytes =
-      //          BlowfishEncryption.decrypt(user, password, "encryptedFile.txt",
-      // "decryptedFile.txt");
-      //      FileHeader readFileHeader = new FileHeader(fileHeaderBytes);
 
       byte[] encodedPrivateKeyBytes =
           BlowfishEncryption.decrypt(user, password, "encryptedFile.txt", "decryptedFile.txt");
