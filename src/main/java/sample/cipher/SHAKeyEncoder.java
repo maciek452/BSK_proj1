@@ -3,8 +3,12 @@ package sample.cipher;
 import javax.crypto.*;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.InvalidKeyException;
+import java.security.KeyFactory;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.PKCS8EncodedKeySpec;
 
 public class SHAKeyEncoder {
 
@@ -38,13 +42,21 @@ public class SHAKeyEncoder {
     return null;
   }
 
-  public static byte[] decode(byte[] input, String password) {
+  public static RSAPrivateKey decode(byte[] input, String password) {
+
     initCipher(Cipher.DECRYPT_MODE, password);
     try {
-      return cipher.doFinal(input);
+      byte[] decryptedPrivateKey = cipher.doFinal(input);
+      KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+      PKCS8EncodedKeySpec privateKeySpec = new PKCS8EncodedKeySpec(decryptedPrivateKey);
+      return (RSAPrivateKey) keyFactory.generatePrivate(privateKeySpec);
     } catch (IllegalBlockSizeException e) {
       e.printStackTrace();
     } catch (BadPaddingException e) {
+      e.printStackTrace();
+    } catch (NoSuchAlgorithmException e) {
+      e.printStackTrace();
+    } catch (InvalidKeySpecException e) {
       e.printStackTrace();
     }
     return null;

@@ -35,11 +35,9 @@ public class SHAKeyEncoderTest {
         Files.write(path, encryptedPrivateKey);
         byte[] readPrivateKey = Files.readAllBytes(path);
         Files.delete(path);
-        byte[] decryptedPrivateKey = SHAKeyEncoder.decode(readPrivateKey, passsword);
+        RSAPrivateKey encodedPrivateKey = SHAKeyEncoder.decode(readPrivateKey, passsword);
 
         KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-        PKCS8EncodedKeySpec privateKeySpec = new PKCS8EncodedKeySpec(decryptedPrivateKey);
-        RSAPrivateKey encodedPrivateKey = (RSAPrivateKey) keyFactory.generatePrivate(privateKeySpec);
 
         X509EncodedKeySpec publicKeySpec = new X509EncodedKeySpec(publicKeyBytes);
         RSAPublicKey encodedPublicKey = (RSAPublicKey) keyFactory.generatePublic(publicKeySpec);

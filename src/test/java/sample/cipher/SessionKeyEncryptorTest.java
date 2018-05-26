@@ -24,7 +24,7 @@ public class SessionKeyEncryptorTest {
         key_gen.initialize(2048);
         KeyPair keyPair = key_gen.generateKeyPair();
         User user = new User("maciek", "maciek".getBytes(), (RSAPublicKey) keyPair.getPublic());
-        byte[] encryptedKey =  SessionKeyEncryptor.encrypt(key, user);
+        byte[] encryptedKey =  SessionKeyEncryptor.encrypt(key, user.getPublicKey());
         Files.write(path, encryptedKey);
         byte[] readBytes = Files.readAllBytes(path);
         Files.delete(path);

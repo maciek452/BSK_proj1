@@ -1,6 +1,6 @@
 package sample.cipher;
 
-import sample.Constants.Modes;
+import static sample.Constants.Constants.*;
 
 import javax.crypto.Cipher;
 import javax.crypto.CipherOutputStream;
@@ -15,12 +15,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.InvalidKeyException;
-import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
+import java.security.NoSuchProviderException;
 import java.security.interfaces.RSAPrivateKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.ArrayList;
 
 public class BlowfishEncryption {
@@ -45,14 +42,16 @@ public class BlowfishEncryption {
         outputStream.write(fileHeaderXML);
         File inputFile = inputPath.toFile();
         long outputFileSize = inputFile.length();
-        byte[] buffer = new byte[1000];
-        long numBytesProcessed = 0L;
-        int numBytesRead;
-        while ((numBytesRead = inputStream.read(buffer)) >= 0) {
-          cipherOutputStream.write(buffer, 0, numBytesRead);
-          numBytesProcessed += numBytesRead;
-          System.out.println("Zaszyfrowano " + numBytesProcessed * 100.0 / outputFileSize + "%");
+        byte[] buffer = new byte[512];
+        long numberOfBytesProcessed = 0L;
+        int numberOfBytesRead;
+        while ((numberOfBytesRead = inputStream.read(buffer)) >= 0) {
+          cipherOutputStream.write(buffer);
+          numberOfBytesProcessed += numberOfBytesRead;
+          System.out.println(
+              "Zaszyfrowano " + numberOfBytesProcessed * 100.0 / outputFileSize + "%");
           // TODO: update progress
+          buffer = new byte[512];
         }
       } finally {
         if (cipherOutputStream != null) cipherOutputStream.close();
@@ -64,7 +63,7 @@ public class BlowfishEncryption {
     }
   }
 
-  public static byte[] decrypt(
+  public static void decrypt(
       final User checkedUser, final String password, String inputFilePath, String outputFilePath) {
     try {
       File inputFile = new File(inputFilePath);
@@ -75,22 +74,16 @@ public class BlowfishEncryption {
       inputStream.read(headerBytes);
       FileHeader fileHeader = new FileHeader(headerBytes);
       User user = chooseUser(fileHeader.getApprovedUsers(), checkedUser.getEmail());
-      byte[] encodedPrivateKey =
-          UsersRegistrar.loadPrivateKey(
-              "KeyPair" + File.separator + "privateKey" + File.separator + user.getEmail(),
-              password);
+      RSAPrivateKey privateKey = UsersManager.loadPrivateKey(user.getEmail(), password);
       byte[] encryptedSessionKeyBytes = user.getEncryptedSessionKey();
-      PrivateKey privateKey =
-          KeyFactory.getInstance("RSA").generatePrivate(new PKCS8EncodedKeySpec(encodedPrivateKey));
 
-      SecretKey sessionKey =
-          SessionKeyEncryptor.decrypt(encryptedSessionKeyBytes, (RSAPrivateKey) privateKey);
+      SecretKey sessionKey = SessionKeyEncryptor.decrypt(encryptedSessionKeyBytes, privateKey);
 
       Cipher cipher = createCipherForFilesEncrypt(fileHeader, sessionKey, Cipher.DECRYPT_MODE);
       CipherOutputStream decryptionStream = new CipherOutputStream(outputStream, cipher);
       long fileSize = inputFile.length();
       try {
-        byte[] buffer = new byte[10000];
+        byte[] buffer = new byte[512];
         long numBytesProcessed = 0L;
         int numBytesRead;
         while ((numBytesRead = inputStream.read(buffer)) >= 0) {
@@ -102,16 +95,9 @@ public class BlowfishEncryption {
       } catch (IOException e) {
         throw new IOException("Nie mozna odczytac pliku: " + e.getLocalizedMessage(), e);
       }
-
-      return encodedPrivateKey;
     } catch (IOException e) {
       e.printStackTrace();
-    } catch (NoSuchAlgorithmException e) {
-      e.printStackTrace();
-    } catch (InvalidKeySpecException e) {
-      e.printStackTrace();
     }
-    return null;
   }
 
   private static User chooseUser(ArrayList<User> users, String email) {
@@ -134,16 +120,16 @@ public class BlowfishEncryption {
       FileHeader fileHeader, SecretKey sessionKey, int mode) {
     Cipher cipher = null;
     try {
-      if (fileHeader.getCipherMode().equals(Modes.CFB)
-          || fileHeader.getCipherMode().equals(Modes.OFB)) {
+      if (fileHeader.getCipherMode().equals(CFB)
+          || fileHeader.getCipherMode().equals(OFB)) {
         cipher =
             Cipher.getInstance(
-                Modes.BLOWFISH
+                BLOWFISH
                     + fileHeader.getCipherMode()
                     + fileHeader.getBlockSize()
-                    + Modes.PADDING);
+                    + PADDING, PROVIDER);
       } else {
-        cipher = Cipher.getInstance(Modes.BLOWFISH + fileHeader.getCipherMode() + Modes.PADDING);
+        cipher = Cipher.getInstance(BLOWFISH + fileHeader.getCipherMode() + PADDING, PROVIDER);
       }
       cipher.init(mode, sessionKey);
     } catch (NoSuchAlgorithmException e) {
@@ -152,7 +138,9 @@ public class BlowfishEncryption {
       e.printStackTrace();
     } catch (InvalidKeyException e) {
       e.printStackTrace();
+    } catch (NoSuchProviderException e) {
+        e.printStackTrace();
     }
-    return cipher;
+      return cipher;
   }
 }

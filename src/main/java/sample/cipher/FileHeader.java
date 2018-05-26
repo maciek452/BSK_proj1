@@ -6,7 +6,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-import sample.Constants.Modes;
+import sample.Constants.Constants;
 
 import javax.crypto.SecretKey;
 import javax.xml.parsers.DocumentBuilder;
@@ -32,7 +32,7 @@ public class FileHeader {
   private String cipherMode;
   private byte[] IV;
   private ArrayList<User> approvedUsers;
-  private byte[] sessionKey; //TODO: Remove
+  private byte[] sessionKey; // TODO: Remove
 
   public FileHeader(
       String algorithm,
@@ -75,7 +75,13 @@ public class FileHeader {
     if (!cipherMode.equals("ECB")) {
       IV = document.getElementsByTagName("IV").item(0).getFirstChild().getNodeValue().getBytes();
     }
-    sessionKey = document.getElementsByTagName("SessionKey").item(0).getFirstChild().getNodeValue().getBytes();
+    sessionKey =
+        document
+            .getElementsByTagName("SessionKey")
+            .item(0)
+            .getFirstChild()
+            .getNodeValue()
+            .getBytes();
     NodeList userNodes = document.getElementsByTagName("User");
     for (int i = 0; i < userNodes.getLength(); i++) {
       Node userNode = userNodes.item(i);
@@ -108,11 +114,13 @@ public class FileHeader {
     document.appendChild(root);
     root = addSimpleChild(root, "Algorithm", algorithm);
     root = addSimpleChild(root, "KeySize", Integer.toString(keySize));
-    if (cipherMode.equals(Modes.CFB) || cipherMode.equals(Modes.OFB))
+    if (cipherMode.equals(Constants.CFB) || cipherMode.equals(Constants.OFB))
       root = addSimpleChild(root, "BlockSize", Integer.toString(blockSize));
     root = addSimpleChild(root, "CipherMode", cipherMode);
     if (IV != null) root = addSimpleChild(root, "IV", new String(IV));
-    root = addSimpleChild(root, "SessionKey", Base64.getEncoder().encodeToString(sessionKey.getEncoded()));
+    root =
+        addSimpleChild(
+            root, "SessionKey", Base64.getEncoder().encodeToString(sessionKey.getEncoded()));
 
     Element approvedUsersElement = document.createElement("ApprovedUsers");
     root.appendChild(approvedUsersElement);
@@ -142,7 +150,7 @@ public class FileHeader {
   }
 
   private Element addUser(Element approvedUsersElement, User user, SecretKey sessionKey) {
-    byte[] rsaEncodedSessionKey = SessionKeyEncryptor.encrypt(sessionKey, user);
+    byte[] rsaEncodedSessionKey = SessionKeyEncryptor.encrypt(sessionKey, user.getPublicKey());
     Element userElement = document.createElement("User");
     userElement = addSimpleChild(userElement, "Email", user.getEmail());
     userElement =

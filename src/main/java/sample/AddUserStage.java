@@ -6,7 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import sample.cipher.UsersRegistrar;
+import sample.cipher.UsersManager;
 
 public class AddUserStage {
   private static Stage stage;
@@ -75,7 +75,7 @@ public class AddUserStage {
             setOnAction(
                 e -> {
                   int result =
-                      UsersRegistrar.createRsaForUser(emailTextField.getText(), passTextField.getText());
+                      UsersManager.createRsaForUser(emailTextField.getText(), passTextField.getText());
                   if (result == 0)
                     new Alert(Alert.AlertType.INFORMATION, "Poprawnie utworzono", new ButtonType[0])
                         .show();

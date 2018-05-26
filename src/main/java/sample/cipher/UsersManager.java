@@ -6,37 +6,26 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.security.interfaces.RSAPrivateKey;
 
-public class UsersRegistrar {
+public class UsersManager {
+  private static String PUBLIC_PATH = "KeyPair" + File.separator + "publicKey" + File.separator;
+  private static String PRIVATE_PATH = "KeyPair" + File.separator + "privateKey" + File.separator;
 
   public static int createRsaForUser(String userName, String password) {
     KeysGenerator keysGenerator;
     keysGenerator = new KeysGenerator(2048);
     byte[] encodedPublicKey = keysGenerator.getPair().getPublic().getEncoded();
-    writeKeyToFile(
-        "KeyPair" + File.separator + "publicKey" + File.separator + userName, encodedPublicKey);
+    writeKeyToFile(PUBLIC_PATH + userName, encodedPublicKey);
     byte[] encodedPrivateKey = keysGenerator.getPair().getPrivate().getEncoded();
-    writeKeyToFile(
-        "KeyPair" + File.separator + "notEncPrivateKey" + File.separator + userName,
-        encodedPrivateKey);
     byte[] encryptedPrivateKey = SHAKeyEncoder.encode(encodedPrivateKey, password);
-    writeKeyToFile(
-        "KeyPair" + File.separator + "privateKey" + File.separator + userName, encryptedPrivateKey);
-    byte[] loadedKey =
-        loadPrivateKey(
-            "KeyPair" + File.separator + "privateKey" + File.separator + userName, password);
-
-    System.out.println(new String(encodedPrivateKey));
-    System.out.println(new String(loadedKey));
-    System.out.println(
-        "takie same?: " + (new String(encodedPrivateKey).equals(new String(loadedKey))));
-
+    writeKeyToFile(PRIVATE_PATH + userName, encryptedPrivateKey);
     return 0;
   }
 
-  public static byte[] loadPrivateKey(String path, String password) {
+  public static RSAPrivateKey loadPrivateKey(String userEmail, String password) {
     try {
-      byte[] encryptedPrivateKey = Files.readAllBytes(Paths.get(path));
+      byte[] encryptedPrivateKey = Files.readAllBytes(Paths.get(PRIVATE_PATH + userEmail));
       return SHAKeyEncoder.decode(encryptedPrivateKey, password);
     } catch (IOException e) {
       e.printStackTrace();
