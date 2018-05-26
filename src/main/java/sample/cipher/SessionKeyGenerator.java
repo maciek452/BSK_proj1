@@ -1,5 +1,7 @@
 package sample.cipher;
 
+import static sample.Constants.Constants.MAIN_ALGORITHM;
+
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import java.awt.*;
@@ -15,7 +17,7 @@ public class SessionKeyGenerator {
 
     if (generator == null) {
       try {
-        generator = KeyGenerator.getInstance("Blowfish");
+        generator = KeyGenerator.getInstance(MAIN_ALGORITHM);
         SecureRandom secureRandom = new SecureRandom();
         Point point = MouseInfo.getPointerInfo().getLocation();
         secureRandom.setSeed(System.nanoTime() * point.x * point.y);

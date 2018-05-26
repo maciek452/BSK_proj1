@@ -9,16 +9,20 @@ import java.security.interfaces.RSAPublicKey;
 @Setter
 public class User {
   private String email;
-  private byte[] encryptedSessionKey;
   private RSAPublicKey publicKey;
+  private byte[] encryptedSessionKey;
 
   public User(String email) {
     this.email = email;
   }
 
-  public User(String email, byte[] encryptedSessionKey, RSAPublicKey publicKey) {
+  public User(String email, RSAPublicKey publicKey) {
     this.email = email;
-    this.encryptedSessionKey = encryptedSessionKey;
     this.publicKey = publicKey;
+  }
+
+  @Override
+  public String toString(){
+    return email;
   }
 }

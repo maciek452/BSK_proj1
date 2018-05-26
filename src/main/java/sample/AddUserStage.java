@@ -75,16 +75,14 @@ public class AddUserStage {
             setOnAction(
                 e -> {
                   int result =
-                      UsersManager.createRsaForUser(emailTextField.getText(), passTextField.getText());
-                  if (result == 0)
-                    new Alert(Alert.AlertType.INFORMATION, "Poprawnie utworzono", new ButtonType[0])
-                        .show();
-                  else
-                    new Alert(
-                            Alert.AlertType.ERROR,
-                            "Nie udało się dodać kluczaRSA",
-                            new ButtonType[0])
-                        .show();
+                      UsersManager.createRsaForUser(
+                          emailTextField.getText(), passTextField.getText());
+                  if (result == 0) {
+                    new AlertMessage(Alert.AlertType.INFORMATION, "Poprawnie utworzono");
+                    stage.close();
+                  } else {
+                    new AlertMessage(Alert.AlertType.ERROR, "Nie udało się dodać kluczaRSA");
+                  }
                 });
           }
         };

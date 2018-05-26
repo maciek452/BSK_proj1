@@ -32,7 +32,6 @@ public class FileHeader {
   private String cipherMode;
   private byte[] IV;
   private ArrayList<User> approvedUsers;
-  private byte[] sessionKey; // TODO: Remove
 
   public FileHeader(
       String algorithm,
@@ -75,13 +74,6 @@ public class FileHeader {
     if (!cipherMode.equals("ECB")) {
       IV = document.getElementsByTagName("IV").item(0).getFirstChild().getNodeValue().getBytes();
     }
-    sessionKey =
-        document
-            .getElementsByTagName("SessionKey")
-            .item(0)
-            .getFirstChild()
-            .getNodeValue()
-            .getBytes();
     NodeList userNodes = document.getElementsByTagName("User");
     for (int i = 0; i < userNodes.getLength(); i++) {
       Node userNode = userNodes.item(i);
@@ -92,9 +84,9 @@ public class FileHeader {
         String keyString =
             userElement.getElementsByTagName("SessionKey").item(0).getFirstChild().getNodeValue();
         byte[] encryptedKey = Base64.getDecoder().decode(keyString);
-        User u = new User(receiverName);
-        u.setEncryptedSessionKey(encryptedKey);
-        approvedUsers.add(u);
+        User user = new User(receiverName);
+        user.setEncryptedSessionKey(encryptedKey);
+        approvedUsers.add(user);
       }
     }
   }
@@ -118,9 +110,6 @@ public class FileHeader {
       root = addSimpleChild(root, "BlockSize", Integer.toString(blockSize));
     root = addSimpleChild(root, "CipherMode", cipherMode);
     if (IV != null) root = addSimpleChild(root, "IV", new String(IV));
-    root =
-        addSimpleChild(
-            root, "SessionKey", Base64.getEncoder().encodeToString(sessionKey.getEncoded()));
 
     Element approvedUsersElement = document.createElement("ApprovedUsers");
     root.appendChild(approvedUsersElement);

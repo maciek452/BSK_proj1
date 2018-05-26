@@ -9,10 +9,17 @@ import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import sample.cipher.User;
+import sample.cipher.UsersManager;
 
 import java.io.File;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
+
+import static sample.Constants.Constants.*;
 
 public class Controller implements Initializable {
 
@@ -71,6 +78,7 @@ public class Controller implements Initializable {
   @Override
   public void initialize(URL location, ResourceBundle resources) {
     initializeChoiceBoxes();
+    initializeLists();
     initializeCredits();
   }
 
@@ -78,14 +86,54 @@ public class Controller implements Initializable {
     FileChooser fileChooser = new FileChooser();
     fileChooser.setTitle("Wybierz plik do zaszyfrowania");
     encryptInputFile = fileChooser.showOpenDialog(stage);
-    encryptInTextArea.setText(encryptInputFile.getPath());
+    if (encryptInputFile != null) encryptInTextArea.setText(encryptInputFile.getPath());
   }
 
   public void chooseEncryptOutputFile() {
     FileChooser fileChooser = new FileChooser();
     fileChooser.setTitle("Wybierz lokalizację zapisania wynikowego pliku");
     encryptOutputFile = fileChooser.showSaveDialog(stage);
-    encryptOutTextArea.setText(encryptOutputFile.getPath());
+    if (encryptOutTextArea != null) encryptOutTextArea.setText(encryptOutputFile.getPath());
+  }
+
+  public void addReceiver() {
+    FileChooser chooser = new FileChooser();
+    chooser.setTitle("Wybierz odbiorcę");
+    chooser.setInitialDirectory(new File(PUBLIC_PATH));
+    List<File> files = chooser.showOpenMultipleDialog(stage);
+    if (files != null) {
+      for (File file : files) {
+        String newReceiverEmail = file.getName();
+        if (isUserAlreadyOnList(newReceiverEmail, listReceiverEncrypt)) {
+          addOutputMsg("Odbiorca już jest na liście.");
+          return;
+        }
+        User user = new User(newReceiverEmail, UsersManager.loadPublicKey(newReceiverEmail));
+        if (user.getPublicKey() == null) {
+          showWarning("Nie udało się odczytać klucza publicznego dla odbiorcy: " + newReceiverEmail);
+        } else {
+          listReceiverEncrypt.add(user);
+          addOutputMsg("Dodano odbiorców.");
+        }
+      }
+    }
+  }
+
+  private boolean isUserAlreadyOnList(String userEmail, List<User> list) {
+    for (User user : list) {
+      if (user.getEmail().equals(userEmail)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  public void removeReceiver(){
+      ObservableList<User> selectedRecipients = this.encryptUsersListView.getSelectionModel().getSelectedItems();
+      if (!selectedRecipients.isEmpty()) {
+          this.listReceiverEncrypt.removeAll(selectedRecipients);
+          addOutputMsg("Usunięto odbiorcę.");
+      }
   }
 
   public void chooseDecryptInputFile() {}
@@ -97,14 +145,14 @@ public class Controller implements Initializable {
   }
 
   private void initializeChoiceBoxes() {
-    modeChoiceBox.setItems(FXCollections.observableArrayList("ECB", "CBC", "CFB", "OFB"));
+    modeChoiceBox.setItems(FXCollections.observableArrayList(ECB, CBC, CFB, OFB));
     modeChoiceBox.getSelectionModel().selectFirst();
     modeChoiceBox
         .getSelectionModel()
         .selectedItemProperty()
         .addListener(
             (observable, oldValue, newValue) -> {
-              if ((newValue.equals("CFB")) || (newValue.equals("OFB"))) {
+              if ((newValue.equals(CFB)) || (newValue.equals(OFB))) {
                 subblockChoiceBox.setDisable(false);
               } else {
                 subblockChoiceBox.setDisable(true);
@@ -115,8 +163,32 @@ public class Controller implements Initializable {
     subblockChoiceBox.setDisable(true);
   }
 
+  private void initializeLists() {
+    encryptUsersListView.setItems(listReceiverEncrypt);
+    decryptUsersListView.setItems(listReceiverDecrypt);
+  }
+
   private void initializeCredits() {
-    creatorsMenuItem.setOnAction(e -> About.display("Twórca programu", "tworca"));
+    creatorsMenuItem.setOnAction(e -> About.display("Twórcy programu", "tworcy"));
     algorithmDescriptionMenuItem.setOnAction(e -> About.display("Opis Algorytmu", "opis"));
+  }
+
+  public void addErrorMsg(String text) {
+    DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+    Date date = new Date();
+    encryptionErrorsTextArea.appendText(dateFormat.format(date) + " " + text + "\n");
+    decryptionErrorsTextArea.appendText(dateFormat.format(date) + " " + text + "\n");
+  }
+
+  public void showWarning(String text) {
+    new AlertMessage(Alert.AlertType.WARNING, text);
+    addErrorMsg(text);
+  }
+
+  public void addOutputMsg(String text) {
+    DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+    Date date = new Date();
+    encryptionOutputTextArea.appendText(dateFormat.format(date) + " " + text + "\n");
+    decryptionOutputTextArea.appendText(dateFormat.format(date) + " " + text + "\n");
   }
 }
