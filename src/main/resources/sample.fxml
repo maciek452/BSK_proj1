@@ -1,78 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-
-<AnchorPane fx:id="paneMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane fx:id="paneMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.Controllers.Controller">
     <children>
         <TabPane fx:id="paneTab" layoutY="25.0" prefHeight="576.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
                 <Tab fx:id="tabSzyfrowanie" text="Szyfrowanie">
                     <content>
-                        <AnchorPane fx:id="encryptionPane" minHeight="0.0" minWidth="0.0" prefHeight="483.0" prefWidth="600.0">
+                        <AnchorPane fx:id="encryptionPane" minHeight="0.0" minWidth="0.0" prefHeight="483.0"
+                                    prefWidth="600.0">
                             <children>
-                                <TabPane fx:id="ouput" layoutX="21.0" layoutY="324.0" prefHeight="108.0" prefWidth="560.0" tabClosingPolicy="UNAVAILABLE">
+                                <TabPane fx:id="ouput" layoutX="21.0" layoutY="324.0" prefHeight="108.0"
+                                         prefWidth="560.0" tabClosingPolicy="UNAVAILABLE">
                                     <tabs>
                                         <Tab fx:id="wyjscieTab" text="Wyjście">
                                             <content>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                                            prefWidth="200.0">
                                                     <children>
-                                                        <TextArea fx:id="encryptionOutputTextArea" editable="false" prefHeight="51.0" prefWidth="563.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                        <TextArea fx:id="encryptionOutputTextArea" editable="false"
+                                                                  prefHeight="51.0" prefWidth="563.0"
+                                                                  AnchorPane.bottomAnchor="0.0"
+                                                                  AnchorPane.leftAnchor="0.0"
+                                                                  AnchorPane.rightAnchor="0.0"
+                                                                  AnchorPane.topAnchor="0.0"/>
                                                     </children>
                                                 </AnchorPane>
                                             </content>
                                         </Tab>
                                         <Tab fx:id="bledyTabEncrypt" text="Błędy">
                                             <content>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                                            prefWidth="200.0">
                                                     <children>
-                                                        <TextArea fx:id="encryptionErrorsTextArea" editable="false" prefHeight="51.0" prefWidth="563.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                        <TextArea fx:id="encryptionErrorsTextArea" editable="false"
+                                                                  prefHeight="51.0" prefWidth="563.0"
+                                                                  AnchorPane.bottomAnchor="0.0"
+                                                                  AnchorPane.leftAnchor="0.0"
+                                                                  AnchorPane.rightAnchor="0.0"
+                                                                  AnchorPane.topAnchor="0.0"/>
                                                     </children>
                                                 </AnchorPane>
                                             </content>
                                         </Tab>
                                     </tabs>
                                 </TabPane>
-                                <TitledPane fx:id="titledPanePlik" animated="false" collapsible="false" layoutX="21.0" layoutY="8.0" prefHeight="111.0" prefWidth="560.0" text="Plik">
+                                <TitledPane fx:id="titledPanePlik" animated="false" collapsible="false" layoutX="21.0"
+                                            layoutY="8.0" prefHeight="111.0" prefWidth="560.0" text="Plik">
                                     <content>
-                                        <AnchorPane fx:id="panePlik" minHeight="0.0" minWidth="0.0" prefHeight="85.0" prefWidth="542.0">
+                                        <AnchorPane fx:id="panePlik" minHeight="0.0" minWidth="0.0" prefHeight="85.0"
+                                                    prefWidth="542.0">
                                             <children>
-                                                <Text layoutX="7.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plik wejściowy:" wrappingWidth="99.13671875" />
-                                                <TextArea fx:id="encryptInTextArea" editable="false" layoutX="100.0" layoutY="10.0" minHeight="0.0" prefHeight="25.0" prefWidth="300.0" promptText="Wybierz plik" wrapText="true" />
-                                                <Button fx:id="encryptSourceButton" layoutX="413.0" layoutY="10.0" mnemonicParsing="false" onAction="#chooseEncryptInputFile" prefHeight="25.0" prefWidth="104.0" text="Wybierz plik" />
-                                                <Text layoutX="7.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plik wyjściowy:" />
-                                                <TextArea fx:id="encryptOutTextArea" editable="false" layoutX="100.0" layoutY="42.0" minHeight="0.0" prefHeight="25.0" prefWidth="300.0" promptText="Wybierz plik" wrapText="true" />
-                                                <Button fx:id="encryptOutputButton" layoutX="413.0" layoutY="42.0" mnemonicParsing="false" onAction="#chooseEncryptOutputFile" prefHeight="25.0" prefWidth="104.0" text="Wybierz plik" />
+                                                <Text layoutX="7.0" layoutY="27.0" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="Plik wejściowy:"
+                                                      wrappingWidth="99.13671875"/>
+                                                <TextArea fx:id="encryptInTextArea" editable="false" layoutX="100.0"
+                                                          layoutY="10.0" minHeight="0.0" prefHeight="25.0"
+                                                          prefWidth="300.0" promptText="Wybierz plik" wrapText="true"/>
+                                                <Button fx:id="encryptSourceButton" layoutX="413.0" layoutY="10.0"
+                                                        mnemonicParsing="false" onAction="#chooseEncryptInputFile"
+                                                        prefHeight="25.0" prefWidth="104.0" text="Wybierz plik"/>
+                                                <Text layoutX="7.0" layoutY="55.0" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="Plik wyjściowy:"/>
+                                                <TextArea fx:id="encryptOutTextArea" editable="false" layoutX="100.0"
+                                                          layoutY="42.0" minHeight="0.0" prefHeight="25.0"
+                                                          prefWidth="300.0" promptText="Wybierz plik" wrapText="true"/>
+                                                <Button fx:id="encryptOutputButton" layoutX="413.0" layoutY="42.0"
+                                                        mnemonicParsing="false" onAction="#chooseEncryptOutputFile"
+                                                        prefHeight="25.0" prefWidth="104.0" text="Wybierz plik"/>
                                             </children>
                                         </AnchorPane>
                                     </content>
                                 </TitledPane>
-                                <TitledPane fx:id="ustawieniaSzyfrowanie" animated="false" collapsible="false" layoutX="21.0" layoutY="130.0" prefHeight="178.0" prefWidth="225.0" text="IDEA - ustawienia">
+                                <TitledPane fx:id="ustawieniaSzyfrowanie" animated="false" collapsible="false"
+                                            layoutX="21.0" layoutY="130.0" prefHeight="178.0" prefWidth="225.0"
+                                            text="IDEA - ustawienia">
                                     <content>
-                                        <AnchorPane fx:id="paneUstawieniaSzyfr" minHeight="0.0" minWidth="0.0" prefHeight="152.0" prefWidth="224.0">
+                                        <AnchorPane fx:id="paneUstawieniaSzyfr" minHeight="0.0" minWidth="0.0"
+                                                    prefHeight="152.0" prefWidth="224.0">
                                             <children>
-                                                <Text layoutX="14.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tryb:" />
-                                                <ChoiceBox fx:id="modeChoiceBox" layoutX="123.0" layoutY="35.0" prefHeight="25.0" prefWidth="74.0" />
-                                                <Text layoutX="16.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Długość podbloku:" />
-                                                <ChoiceBox fx:id="subblockChoiceBox" layoutX="123.0" layoutY="89.0" prefHeight="25.0" prefWidth="74.0" />
+                                                <Text layoutX="14.0" layoutY="52.0" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="Tryb:"/>
+                                                <ChoiceBox fx:id="modeChoiceBox" layoutX="123.0" layoutY="35.0"
+                                                           prefHeight="25.0" prefWidth="74.0"/>
+                                                <Text layoutX="16.0" layoutY="106.0" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="Długość podbloku:"/>
+                                                <ChoiceBox fx:id="subblockChoiceBox" layoutX="123.0" layoutY="89.0"
+                                                           prefHeight="25.0" prefWidth="74.0"/>
                                             </children>
                                         </AnchorPane>
                                     </content>
                                 </TitledPane>
-                                <Button fx:id="cancelEncryptionButton" layoutX="296.0" layoutY="501.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="208.0" text="Anuluj" />
-                                <Button fx:id="encryptButton" layoutX="65.0" layoutY="501.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="208.0" text="Szyfruj" />
-                                <ProgressBar fx:id="encryptionProgressBar" layoutX="65.0" layoutY="451.0" prefHeight="39.0" prefWidth="439.0" progress="0.0" />
-                                <TitledPane animated="false" collapsible="false" layoutX="266.0" layoutY="130.0" prefHeight="179.0" prefWidth="315.0" text="Lista odbiorców">
+                                <Button fx:id="cancelEncryptionButton" layoutX="296.0" layoutY="501.0"
+                                        mnemonicParsing="false" prefHeight="25.0" prefWidth="208.0" text="Anuluj"
+                                        onAction="#cancelEncryption"/>
+                                <Button fx:id="encryptButton" layoutX="65.0" layoutY="501.0" mnemonicParsing="false"
+                                        prefHeight="25.0" prefWidth="208.0" text="Szyfruj" onAction="#encrypt"/>
+                                <ProgressBar fx:id="encryptionProgressBar" layoutX="65.0" layoutY="451.0"
+                                             prefHeight="39.0" prefWidth="439.0" progress="0.0"/>
+                                <TitledPane animated="false" collapsible="false" layoutX="266.0" layoutY="130.0"
+                                            prefHeight="179.0" prefWidth="315.0" text="Lista odbiorców">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                             <children>
-                                                <ListView fx:id="encryptUsersListView" editable="true" layoutX="19.6" layoutY="19.6" prefHeight="134.0" prefWidth="266.0" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="10.0" />
-                                                <Button fx:id="addReceiverButton" layoutX="268.0" layoutY="44.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="39.0" text="+" />
-                                                <Button fx:id="removeReceiverButton" layoutX="268.0" layoutY="77.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="39.0" text="-" />
+                                                <ListView fx:id="encryptUsersListView" editable="true" layoutX="19.6"
+                                                          layoutY="19.6" prefHeight="134.0" prefWidth="266.0"
+                                                          AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="10.0"
+                                                          AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="10.0"/>
+                                                <Button fx:id="addReceiverButton" layoutX="268.0" layoutY="44.0"
+                                                        mnemonicParsing="false" prefHeight="25.0" prefWidth="39.0"
+                                                        text="+" onAction="#addReceiver"/>
+                                                <Button fx:id="removeReceiverButton" layoutX="268.0" layoutY="77.0"
+                                                        mnemonicParsing="false" prefHeight="25.0" prefWidth="39.0"
+                                                        text="-" onAction="#removeReceiver"/>
                                             </children>
                                         </AnchorPane>
                                     </content>
@@ -85,64 +130,104 @@
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="483.0" prefWidth="600.0">
                             <children>
-                                <TitledPane fx:id="titledPanePlikOdszyf" animated="false" collapsible="false" layoutX="21.0" layoutY="8.0" prefHeight="111.0" prefWidth="560.0" text="Plik">
+                                <TitledPane fx:id="titledPanePlikOdszyf" animated="false" collapsible="false"
+                                            layoutX="21.0" layoutY="8.0" prefHeight="111.0" prefWidth="560.0"
+                                            text="Plik">
                                     <content>
-                                        <AnchorPane fx:id="panePlikOdszyf" minHeight="0.0" minWidth="0.0" prefHeight="85.0" prefWidth="549.0">
+                                        <AnchorPane fx:id="panePlikOdszyf" minHeight="0.0" minWidth="0.0"
+                                                    prefHeight="85.0" prefWidth="549.0">
                                             <children>
-                                                <Text layoutX="7.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plik wejściowy:" wrappingWidth="99.13671875" />
-                                                <TextArea fx:id="decryptInTextArea" layoutX="100.0" layoutY="10.0" minHeight="0.0" prefHeight="25.0" prefWidth="300.0" promptText="Wybierz plik" wrapText="true" />
-                                                <Button fx:id="decryptSourceButton" layoutX="413.0" layoutY="10.0" mnemonicParsing="false" onAction="#chooseDecryptInputFile" prefHeight="25.0" prefWidth="104.0" text="Wybierz plik" />
-                                                <Text layoutX="7.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plik wyjściowy:" />
-                                                <TextArea fx:id="decryptOutTextArea" layoutX="100.0" layoutY="42.0" minHeight="0.0" prefHeight="25.0" prefWidth="300.0" promptText="Wybierz plik" wrapText="true" />
-                                                <Button fx:id="decryptOutputButton" layoutX="413.0" layoutY="42.0" mnemonicParsing="false" onAction="#chooseDecryptOutputFile" prefHeight="25.0" prefWidth="104.0" text="Wybierz plik" />
+                                                <Text layoutX="7.0" layoutY="27.0" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="Plik wejściowy:"
+                                                      wrappingWidth="99.13671875"/>
+                                                <TextArea fx:id="decryptInTextArea" layoutX="100.0" layoutY="10.0"
+                                                          minHeight="0.0" prefHeight="25.0" prefWidth="300.0"
+                                                          promptText="Wybierz plik" wrapText="true"/>
+                                                <Button fx:id="decryptSourceButton" layoutX="413.0" layoutY="10.0"
+                                                        mnemonicParsing="false" onAction="#chooseDecryptInputFile"
+                                                        prefHeight="25.0" prefWidth="104.0" text="Wybierz plik"/>
+                                                <Text layoutX="7.0" layoutY="55.0" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="Plik wyjściowy:"/>
+                                                <TextArea fx:id="decryptOutTextArea" layoutX="100.0" layoutY="42.0"
+                                                          minHeight="0.0" prefHeight="25.0" prefWidth="300.0"
+                                                          promptText="Wybierz plik" wrapText="true"/>
+                                                <Button fx:id="decryptOutputButton" layoutX="413.0" layoutY="42.0"
+                                                        mnemonicParsing="false" onAction="#chooseDecryptOutputFile"
+                                                        prefHeight="25.0" prefWidth="104.0" text="Wybierz plik"/>
                                             </children>
                                         </AnchorPane>
                                     </content>
                                 </TitledPane>
-                                <TitledPane fx:id="ustawieniaSzyfrowanie1" animated="false" collapsible="false" layoutX="21.0" layoutY="130.0" prefHeight="178.0" prefWidth="225.0" text="IDEA - ustawienia">
+                                <TitledPane fx:id="ustawieniaSzyfrowanie1" animated="false" collapsible="false"
+                                            layoutX="21.0" layoutY="130.0" prefHeight="178.0" prefWidth="225.0"
+                                            text="IDEA - ustawienia">
                                     <content>
-                                        <AnchorPane fx:id="paneUstawieniaSzyfr1" minHeight="0.0" minWidth="0.0" prefHeight="152.0" prefWidth="225.0">
+                                        <AnchorPane fx:id="paneUstawieniaSzyfr1" minHeight="0.0" minWidth="0.0"
+                                                    prefHeight="152.0" prefWidth="225.0">
                                             <children>
-                                                <Text layoutX="14.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hasło:" />
-                                                <PasswordField fx:id="passwordField" layoutX="51.0" layoutY="51.0" prefHeight="25.0" prefWidth="148.0" />
+                                                <Text layoutX="14.0" layoutY="68.0" strokeType="OUTSIDE"
+                                                      strokeWidth="0.0" text="Hasło:"/>
+                                                <PasswordField fx:id="passwordField" layoutX="51.0" layoutY="51.0"
+                                                               prefHeight="25.0" prefWidth="148.0"/>
                                             </children>
                                         </AnchorPane>
                                     </content>
                                 </TitledPane>
-                                <TabPane fx:id="ouputOdszyfr" layoutX="21.0" layoutY="324.0" prefHeight="108.0" prefWidth="560.0" tabClosingPolicy="UNAVAILABLE">
+                                <TabPane fx:id="ouputOdszyfr" layoutX="21.0" layoutY="324.0" prefHeight="108.0"
+                                         prefWidth="560.0" tabClosingPolicy="UNAVAILABLE">
                                     <tabs>
                                         <Tab fx:id="wyjscieTabOdszyf" text="Wyjście">
                                             <content>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                                            prefWidth="200.0">
                                                     <children>
-                                                        <TextArea fx:id="decryptionOutputTextArea" editable="false" prefHeight="51.0" prefWidth="563.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                        <TextArea fx:id="decryptionOutputTextArea" editable="false"
+                                                                  prefHeight="51.0" prefWidth="563.0"
+                                                                  AnchorPane.bottomAnchor="0.0"
+                                                                  AnchorPane.leftAnchor="0.0"
+                                                                  AnchorPane.rightAnchor="0.0"
+                                                                  AnchorPane.topAnchor="0.0"/>
                                                     </children>
                                                 </AnchorPane>
                                             </content>
                                         </Tab>
                                         <Tab fx:id="bledyTabOdszyf" text="Błędy">
                                             <content>
-                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+                                                            prefWidth="200.0">
                                                     <children>
-                                                        <TextArea fx:id="decryptionErrorsTextArea" editable="false" prefHeight="51.0" prefWidth="563.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                        <TextArea fx:id="decryptionErrorsTextArea" editable="false"
+                                                                  prefHeight="51.0" prefWidth="563.0"
+                                                                  AnchorPane.bottomAnchor="0.0"
+                                                                  AnchorPane.leftAnchor="0.0"
+                                                                  AnchorPane.rightAnchor="0.0"
+                                                                  AnchorPane.topAnchor="0.0"/>
                                                     </children>
                                                 </AnchorPane>
                                             </content>
                                         </Tab>
                                     </tabs>
                                 </TabPane>
-                                <Button fx:id="decryptButton" layoutX="65.0" layoutY="501.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="208.0" text="Odszyfruj" />
-                                <Button fx:id="cancelDecryptionButton" layoutX="296.0" layoutY="501.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="208.0" text="Anuluj" />
-                                <TitledPane animated="false" collapsible="false" layoutX="266.0" layoutY="130.0" prefHeight="179.0" prefWidth="315.0" text="Lista odbiorców - zaznacz siebie">
+                                <Button fx:id="decryptButton" layoutX="65.0" layoutY="501.0" mnemonicParsing="false"
+                                        prefHeight="25.0" prefWidth="208.0" text="Odszyfruj" onAction="#decrypt"/>
+                                <Button fx:id="cancelDecryptionButton" layoutX="296.0" layoutY="501.0"
+                                        mnemonicParsing="false" prefHeight="25.0" prefWidth="208.0" text="Anuluj"/>
+                                <TitledPane animated="false" collapsible="false" layoutX="266.0" layoutY="130.0"
+                                            prefHeight="179.0" prefWidth="315.0"
+                                            text="Lista odbiorców - zaznacz siebie">
                                     <content>
                                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="151.0" prefWidth="257.0">
                                             <children>
-                                                <ListView fx:id="decryptUsersListView" layoutX="18.6" layoutY="19.6" prefHeight="151.0" prefWidth="278.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                                <ListView fx:id="decryptUsersListView" layoutX="18.6" layoutY="19.6"
+                                                          prefHeight="151.0" prefWidth="278.0"
+                                                          AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                                                          AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
                                             </children>
                                         </AnchorPane>
                                     </content>
                                 </TitledPane>
-                                <ProgressBar fx:id="decryptionProgressBar" layoutX="65.0" layoutY="451.0" prefHeight="39.0" prefWidth="439.0" progress="0.0" />
+                                <ProgressBar fx:id="decryptionProgressBar" layoutX="65.0" layoutY="451.0"
+                                             prefHeight="39.0" prefWidth="439.0" progress="0.0"/>
                             </children>
                         </AnchorPane>
                     </content>
@@ -155,13 +240,16 @@
                     <menus>
                         <Menu fx:id="menuOProgram" mnemonicParsing="false" text="O programie">
                             <items>
-                                <MenuItem fx:id="creatorsMenuItem" mnemonicParsing="false" text="Twórcy" />
-                                <MenuItem fx:id="algorithmDescriptionMenuItem" mnemonicParsing="false" text="Opis algorytmu" />
-                                <MenuItem fx:id="createRsaMenuItem" mnemonicParsing="false" text="Generuj klucze RSA" onAction="#openAddReceiverStage"/>
-                            </items></Menu>
+                                <MenuItem fx:id="creatorsMenuItem" mnemonicParsing="false" text="Twórcy"/>
+                                <MenuItem fx:id="algorithmDescriptionMenuItem" mnemonicParsing="false"
+                                          text="Opis algorytmu"/>
+                                <MenuItem fx:id="createRsaMenuItem" mnemonicParsing="false" text="Generuj klucze RSA"
+                                          onAction="#openAddReceiverStage"/>
+                            </items>
+                        </Menu>
                     </menus>
                     <effect>
-                        <Blend mode="RED" />
+                        <Blend mode="RED"/>
                     </effect>
                 </MenuBar>
             </children>

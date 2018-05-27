@@ -25,6 +25,7 @@ hs_err_pid*
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff
+.idea
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/**/dictionaries
@@ -51,6 +52,8 @@ cmake-build-release/
 
 # File-based project format
 *.iws
+*.iml
+
 
 # IntelliJ
 out/
@@ -72,3 +75,10 @@ fabric.properties
 
 # Editor-based Rest Client
 .idea/httpRequests
+
+# Product Files
+target/
+
+# Custom files
+KeyPair/
+Testing/
