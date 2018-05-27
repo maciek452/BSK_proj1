@@ -19,6 +19,6 @@ public final class Constants {
       "KeyPair" + File.separator + "publicKey" + File.separator;
   public static final String PRIVATE_PATH =
       "KeyPair" + File.separator + "privateKey" + File.separator;
-
+    public static final int SESSION_KEY_SIZE = 128;
   private Constants() {}
 }

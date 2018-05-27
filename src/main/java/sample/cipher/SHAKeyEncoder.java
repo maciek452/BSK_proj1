@@ -53,7 +53,7 @@ public class SHAKeyEncoder {
     } catch (IllegalBlockSizeException e) {
       e.printStackTrace();
     } catch (BadPaddingException e) {
-      e.printStackTrace();
+      return null;
     } catch (NoSuchAlgorithmException e) {
       e.printStackTrace();
     } catch (InvalidKeySpecException e) {

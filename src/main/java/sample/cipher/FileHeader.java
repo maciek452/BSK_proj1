@@ -6,7 +6,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-import sample.Constants.Constants;
 
 import javax.crypto.SecretKey;
 import javax.xml.parsers.DocumentBuilder;
@@ -18,42 +17,52 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.ByteBuffer;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
+
+import static sample.Constants.Constants.*;
 
 @Getter
 public class FileHeader {
 
-  DocumentBuilder documentBuilder;
-  Document document;
+  private DocumentBuilder documentBuilder;
+  private Document document;
+
   private String algorithm;
   private int keySize;
   private int blockSize;
   private String cipherMode;
   private byte[] IV;
-  private ArrayList<User> approvedUsers;
+  private List<User> approvedUsers;
 
-  public FileHeader(
-      String algorithm,
-      int keySize,
-      int blockSize,
-      String cipherMode,
-      byte[] IV,
-      ArrayList<User> approvedUsers) {
-    this.algorithm = algorithm;
-    this.keySize = keySize;
+  public FileHeader(String cipherMode, int blockSize, List<User> approvedUsers) {
+
+    this.algorithm = MAIN_ALGORITHM;
+    this.keySize = SESSION_KEY_SIZE;
     this.blockSize = blockSize;
     this.cipherMode = cipherMode;
-    this.IV = IV;
+    this.IV = randIV();
     this.approvedUsers = approvedUsers;
     initializeFields();
   }
 
-  public FileHeader(byte[] fileHeaderBytes) {
+  public FileHeader(InputStream inputStream) {
+    int headerSize = readHeaderSize(inputStream);
+    byte[] headerBytes = new byte[headerSize];
+    try {
+      inputStream.read(headerBytes);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
     approvedUsers = new ArrayList<>();
     initializeFields();
     try {
-      document = documentBuilder.parse(new ByteArrayInputStream(fileHeaderBytes));
+      document = documentBuilder.parse(new ByteArrayInputStream(headerBytes));
     } catch (SAXException e) {
       e.printStackTrace();
     } catch (IOException e) {
@@ -68,11 +77,11 @@ public class FileHeader {
     if ((cipherMode.equals("CFB")) || (cipherMode.equals("OFB"))) {
       blockSize =
           Integer.valueOf(
-                  document.getElementsByTagName("BlockSize").item(0).getFirstChild().getNodeValue())
-              .intValue();
+              document.getElementsByTagName("BlockSize").item(0).getFirstChild().getNodeValue());
     }
     if (!cipherMode.equals("ECB")) {
       IV = document.getElementsByTagName("IV").item(0).getFirstChild().getNodeValue().getBytes();
+      IV = Base64.getDecoder().decode(IV);
     }
     NodeList userNodes = document.getElementsByTagName("User");
     for (int i = 0; i < userNodes.getLength(); i++) {
@@ -91,6 +100,28 @@ public class FileHeader {
     }
   }
 
+  private static int readHeaderSize(InputStream inputStream) {
+    byte[] headerSizeBytes = new byte[4];
+    try {
+      if (inputStream.read(headerSizeBytes) != 4) {
+        throw new IOException("Nie można odczytać rozmiaru nagłowka.");
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return ByteBuffer.wrap(headerSizeBytes).getInt();
+  }
+
+  private byte[] randIV() {
+    byte[] randomBytes = new byte[8];
+    try {
+      SecureRandom.getInstanceStrong().nextBytes(randomBytes);
+    } catch (NoSuchAlgorithmException e) {
+      e.printStackTrace();
+    }
+    return randomBytes;
+  }
+
   private void initializeFields() {
     try {
       documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
@@ -106,10 +137,10 @@ public class FileHeader {
     document.appendChild(root);
     root = addSimpleChild(root, "Algorithm", algorithm);
     root = addSimpleChild(root, "KeySize", Integer.toString(keySize));
-    if (cipherMode.equals(Constants.CFB) || cipherMode.equals(Constants.OFB))
+    if (cipherMode.equals(CFB) || cipherMode.equals(OFB))
       root = addSimpleChild(root, "BlockSize", Integer.toString(blockSize));
     root = addSimpleChild(root, "CipherMode", cipherMode);
-    if (IV != null) root = addSimpleChild(root, "IV", new String(IV));
+    if (!cipherMode.equals(ECB)) root = addSimpleChild(root, "IV", Base64.getEncoder().encodeToString(IV));
 
     Element approvedUsersElement = document.createElement("ApprovedUsers");
     root.appendChild(approvedUsersElement);

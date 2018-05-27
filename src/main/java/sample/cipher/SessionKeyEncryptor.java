@@ -43,7 +43,7 @@ public class SessionKeyEncryptor {
     } catch (NoSuchPaddingException e) {
       e.printStackTrace();
     } catch (BadPaddingException e) {
-      e.printStackTrace();
+      return SessionKeyGenerator.generateSessionKey();
     } catch (IllegalBlockSizeException e) {
       e.printStackTrace();
     } catch (InvalidKeyException e) {

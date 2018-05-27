@@ -1,6 +1,7 @@
 package sample.cipher;
 
 import static sample.Constants.Constants.MAIN_ALGORITHM;
+import static sample.Constants.Constants.SESSION_KEY_SIZE;
 
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
@@ -10,7 +11,6 @@ import java.security.SecureRandom;
 
 public class SessionKeyGenerator {
 
-  private static final int KEY_SIZE = 128;
   private static KeyGenerator generator;
 
   public static SecretKey generateSessionKey() {
@@ -21,7 +21,7 @@ public class SessionKeyGenerator {
         SecureRandom secureRandom = new SecureRandom();
         Point point = MouseInfo.getPointerInfo().getLocation();
         secureRandom.setSeed(System.nanoTime() * point.x * point.y);
-        generator.init(KEY_SIZE, secureRandom);
+        generator.init(SESSION_KEY_SIZE, secureRandom);
       } catch (NoSuchAlgorithmException e) {
         e.printStackTrace();
       }

@@ -12,7 +12,6 @@ public class AddUserStage {
   private static Stage stage;
   private static Label label1, label2;
   private static TextField emailTextField, passTextField;
-  private static TextField[] texFields;
   private static Button closeButton, addButton;
 
   public static void display() {

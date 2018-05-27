@@ -1,4 +1,4 @@
-package sample;
+package sample.Controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,16 +8,21 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import sample.About;
+import sample.AddUserStage;
+import sample.AlertMessage;
+import sample.cipher.BlowfishEncryption;
+import sample.cipher.FileHeader;
 import sample.cipher.User;
 import sample.cipher.UsersManager;
 
-import java.io.File;
+import java.io.*;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import static sample.Constants.Constants.*;
 
@@ -110,10 +115,11 @@ public class Controller implements Initializable {
         }
         User user = new User(newReceiverEmail, UsersManager.loadPublicKey(newReceiverEmail));
         if (user.getPublicKey() == null) {
-          showWarning("Nie udało się odczytać klucza publicznego dla odbiorcy: " + newReceiverEmail);
+          showWarning(
+              "Nie udało się odczytać klucza publicznego dla odbiorcy: " + newReceiverEmail);
         } else {
           listReceiverEncrypt.add(user);
-          addOutputMsg("Dodano odbiorców.");
+          addOutputMsg("Dodano odbiorce.");
         }
       }
     }
@@ -128,17 +134,43 @@ public class Controller implements Initializable {
     return false;
   }
 
-  public void removeReceiver(){
-      ObservableList<User> selectedRecipients = this.encryptUsersListView.getSelectionModel().getSelectedItems();
-      if (!selectedRecipients.isEmpty()) {
-          this.listReceiverEncrypt.removeAll(selectedRecipients);
-          addOutputMsg("Usunięto odbiorcę.");
-      }
+  public void removeReceiver() {
+    ObservableList<User> selectedRecipients =
+        this.encryptUsersListView.getSelectionModel().getSelectedItems();
+    if (!selectedRecipients.isEmpty()) {
+      this.listReceiverEncrypt.removeAll(selectedRecipients);
+      addOutputMsg("Usunięto odbiorce");
+    }
   }
 
-  public void chooseDecryptInputFile() {}
+  public void chooseDecryptInputFile() {
+    FileChooser fileChooser = new FileChooser();
+    fileChooser.setTitle("Wybierz plik do odszyfrowania");
+    decryptInputFile = fileChooser.showOpenDialog(stage);
+    if (decryptInputFile != null) decryptInTextArea.setText(decryptInputFile.getPath());
+      addAvailableReceiversToList(decryptInputFile);
+  }
 
-  public void chooseDecryptOutputFile() {}
+  public void chooseDecryptOutputFile() {
+    FileChooser fileChooser = new FileChooser();
+    fileChooser.setTitle("Wybierz lokalizację zapisania wynikowego pliku");
+    decryptOutputFile = fileChooser.showSaveDialog(stage);
+    if (decryptOutTextArea != null) decryptOutTextArea.setText(decryptOutputFile.getPath());
+
+  }
+
+  public void addAvailableReceiversToList(File file) {
+      listReceiverDecrypt.clear();
+      InputStream inputStream = null;
+      try {
+          inputStream = Files.newInputStream(file.toPath());
+      } catch (IOException e) {
+          e.printStackTrace();
+      }
+      FileHeader fileHeader = new FileHeader(inputStream);
+      listReceiverDecrypt.addAll(fileHeader.getApprovedUsers());
+      decryptUsersListView.getSelectionModel().selectFirst();
+  }
 
   public void openAddReceiverStage() {
     AddUserStage.display();
@@ -173,16 +205,9 @@ public class Controller implements Initializable {
     algorithmDescriptionMenuItem.setOnAction(e -> About.display("Opis Algorytmu", "opis"));
   }
 
-  public void addErrorMsg(String text) {
-    DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-    Date date = new Date();
-    encryptionErrorsTextArea.appendText(dateFormat.format(date) + " " + text + "\n");
-    decryptionErrorsTextArea.appendText(dateFormat.format(date) + " " + text + "\n");
-  }
-
   public void showWarning(String text) {
     new AlertMessage(Alert.AlertType.WARNING, text);
-    addErrorMsg(text);
+    addOutputMsg(text);
   }
 
   public void addOutputMsg(String text) {
@@ -191,4 +216,96 @@ public class Controller implements Initializable {
     encryptionOutputTextArea.appendText(dateFormat.format(date) + " " + text + "\n");
     decryptionOutputTextArea.appendText(dateFormat.format(date) + " " + text + "\n");
   }
+
+  public void encrypt() {
+    if ((encryptionTask == null) || (!encryptionTask.isRunning())) {
+      if (areEncryptPathsEmpty()) return;
+      if (isListOfReceiversEmpty()) return;
+
+      FileHeader header =
+          new FileHeader(
+              modeChoiceBox.getSelectionModel().getSelectedItem().toString(),
+              subblockChoiceBox.getSelectionModel().getSelectedItem(),
+              listReceiverEncrypt);
+      this.encryptionTask =
+          BlowfishEncryption.encrypt(
+              header,
+              Paths.get(encryptInTextArea.getText()),
+              Paths.get(encryptOutTextArea.getText()));
+      encryptionProgressBar.progressProperty().unbind();
+      encryptionProgressBar.progressProperty().bind(encryptionTask.progressProperty());
+      this.encryptionTask
+          .runningProperty()
+          .addListener(
+              (observable, oldValue, newValue) -> {
+                if (oldValue.toString().equals("true") && newValue.toString().equals("false")) {
+                  encryptionProgressBar.progressProperty().unbind();
+                  encryptionProgressBar.setProgress(0.0D);
+                  addOutputMsg("Zakończono szyfrowanie.");
+                  if ((encryptionTask != null) && (encryptionTask.getException() != null)) {
+                    new AlertMessage(
+                        Alert.AlertType.WARNING,
+                        encryptionTask.getException().getLocalizedMessage());
+                  }
+                }
+              });
+      addOutputMsg("Rozpoczęto szyfrowanie.");
+      new Thread(encryptionTask).start();
+    }
+  }
+
+  public void cancelEncryption() {
+    if (encryptionTask != null && encryptionTask.isRunning()) {
+      encryptionTask.cancel(true);
+      encryptionProgressBar.progressProperty().unbind();
+      encryptionProgressBar.setProgress(0.0D);
+      addOutputMsg("Anulowano szyfrowanie.");
+    }
+  }
+
+  private boolean areEncryptPathsEmpty() {
+    if (encryptInTextArea.getText().isEmpty() || encryptOutTextArea.getText().isEmpty()) {
+      showWarning("Uzupełnij ścieżki plików");
+      return true;
+    }
+    return false;
+  }
+
+  private boolean isListOfReceiversEmpty() {
+    if (listReceiverEncrypt.size() <= 0) {
+      showWarning("Uzupełnij odbiorców");
+      return true;
+    }
+    return false;
+  }
+
+  public void decrypt(){
+      if ((decryptionTask == null) || (!decryptionTask.isRunning())) {
+
+          if(areDecryptPathsEmpty()) return;
+          this.decryptionTask = BlowfishEncryption.decrypt(decryptUsersListView.getSelectionModel().getSelectedItems().get(0), passwordField.getText(), decryptInTextArea.getText(), decryptOutTextArea.getText());
+          decryptionProgressBar.progressProperty().unbind();
+          decryptionProgressBar.progressProperty().bind(decryptionTask.progressProperty());
+          this.decryptionTask.runningProperty().addListener((observable, oldValue, newValue) -> {
+              if (oldValue.toString().equals("true") && newValue.toString().equals("false")) {
+                  decryptionProgressBar.progressProperty().unbind();
+                  decryptionProgressBar.setProgress(0.0D);
+                  addOutputMsg("Zakończono deszyfrowanie.");
+                  if ((decryptionTask != null) && (decryptionTask.getException() != null)) {
+                      new Alert(Alert.AlertType.WARNING, decryptionTask.getException().getLocalizedMessage(), new ButtonType[0]).show();
+                  }
+              }
+          });
+          addOutputMsg("Rozpoczęto deszyfrowanie.");
+          new Thread(decryptionTask).start();
+      }
+  }
+
+    private boolean areDecryptPathsEmpty() {
+        if (decryptInTextArea.getText().isEmpty() || decryptOutTextArea.getText().isEmpty()) {
+            showWarning("Uzupełnij pola wyboru plików");
+            return true;
+        }
+        return false;
+    }
 }

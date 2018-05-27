@@ -33,12 +33,12 @@ public class Test {
 
       users.add(user);
       FileHeader fileHeader =
-          new FileHeader("Blowfish", 80, 32, ECB, "dupadupa".getBytes(), users);
+          new FileHeader(ECB, 32, users);
 
-      BlowfishEncryption.encrypt(
-          fileHeader, Paths.get("myFile.txt"), Paths.get("encryptedFile.txt"));
+//      BlowfishEncryption.encrypt(
+//          fileHeader, Paths.get("myFile.txt"), Paths.get("encryptedFile.txt"));
 
-      BlowfishEncryption.decrypt(user, password, "encryptedFile.txt", "decryptedFile.txt");
+      BlowfishEncryption.decrypt(user, password, "zaszyfrowane.txt", "decryptedFile.pdf");
     }
   }
 }

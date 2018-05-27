@@ -6,7 +6,7 @@
 <?import javafx.scene.text.*?>
 <AnchorPane fx:id="paneMain" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
             prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="sample.Controller">
+            fx:controller="sample.Controllers.Controller">
     <children>
         <TabPane fx:id="paneTab" layoutY="25.0" prefHeight="576.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
             <tabs>
@@ -97,9 +97,10 @@
                                     </content>
                                 </TitledPane>
                                 <Button fx:id="cancelEncryptionButton" layoutX="296.0" layoutY="501.0"
-                                        mnemonicParsing="false" prefHeight="25.0" prefWidth="208.0" text="Anuluj"/>
+                                        mnemonicParsing="false" prefHeight="25.0" prefWidth="208.0" text="Anuluj"
+                                        onAction="#cancelEncryption"/>
                                 <Button fx:id="encryptButton" layoutX="65.0" layoutY="501.0" mnemonicParsing="false"
-                                        prefHeight="25.0" prefWidth="208.0" text="Szyfruj"/>
+                                        prefHeight="25.0" prefWidth="208.0" text="Szyfruj" onAction="#encrypt"/>
                                 <ProgressBar fx:id="encryptionProgressBar" layoutX="65.0" layoutY="451.0"
                                              prefHeight="39.0" prefWidth="439.0" progress="0.0"/>
                                 <TitledPane animated="false" collapsible="false" layoutX="266.0" layoutY="130.0"
@@ -208,7 +209,7 @@
                                     </tabs>
                                 </TabPane>
                                 <Button fx:id="decryptButton" layoutX="65.0" layoutY="501.0" mnemonicParsing="false"
-                                        prefHeight="25.0" prefWidth="208.0" text="Odszyfruj"/>
+                                        prefHeight="25.0" prefWidth="208.0" text="Odszyfruj" onAction="#decrypt"/>
                                 <Button fx:id="cancelDecryptionButton" layoutX="296.0" layoutY="501.0"
                                         mnemonicParsing="false" prefHeight="25.0" prefWidth="208.0" text="Anuluj"/>
                                 <TitledPane animated="false" collapsible="false" layoutX="266.0" layoutY="130.0"

@@ -2,13 +2,10 @@ package sample.cipher;
 
 import lombok.Getter;
 
-import java.security.KeyFactory;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
-import java.security.interfaces.RSAPublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
+import java.security.interfaces.RSAPrivateKey;
 
 public class KeysGenerator {
 
@@ -23,6 +20,11 @@ public class KeysGenerator {
     } catch (NoSuchAlgorithmException e) {
       e.printStackTrace();
     }
+  }
+
+  public static RSAPrivateKey getRandomPrivateKey(){
+    KeysGenerator keysGenerator = new KeysGenerator(2048);
+    return (RSAPrivateKey) keysGenerator.getPair().getPrivate();
   }
 
 
