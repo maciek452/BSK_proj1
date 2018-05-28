@@ -98,7 +98,7 @@ public class Controller implements Initializable {
     FileChooser fileChooser = new FileChooser();
     fileChooser.setTitle("Wybierz lokalizację zapisania wynikowego pliku");
     encryptOutputFile = fileChooser.showSaveDialog(stage);
-    if (encryptOutTextArea != null) encryptOutTextArea.setText(encryptOutputFile.getPath());
+    if (encryptOutputFile != null) encryptOutTextArea.setText(encryptOutputFile.getPath());
   }
 
   public void addReceiver() {

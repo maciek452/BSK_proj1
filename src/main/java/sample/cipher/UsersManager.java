@@ -26,7 +26,7 @@ public class UsersManager {
     byte[] encodedPublicKey = keysGenerator.getPair().getPublic().getEncoded();
     writeKeyToFile(PUBLIC_PATH + userName, encodedPublicKey);
     byte[] encodedPrivateKey = keysGenerator.getPair().getPrivate().getEncoded();
-    byte[] encryptedPrivateKey = SHAKeyEncoder.encode(encodedPrivateKey, password);
+    byte[] encryptedPrivateKey = RSAKeyEncoder.encode(encodedPrivateKey, password);
     writeKeyToFile(PRIVATE_PATH + userName, encryptedPrivateKey);
     return 0;
   }
@@ -34,7 +34,7 @@ public class UsersManager {
   public static RSAPrivateKey loadPrivateKey(String userEmail, String password) {
     try {
       byte[] encryptedPrivateKey = Files.readAllBytes(Paths.get(PRIVATE_PATH + userEmail));
-      return SHAKeyEncoder.decode(encryptedPrivateKey, password);
+      return RSAKeyEncoder.decode(encryptedPrivateKey, password);
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -44,7 +44,7 @@ public class UsersManager {
   public static RSAPublicKey loadPublicKey(String userEmail) {
     try {
       byte[] encryptedPrivateKey = Files.readAllBytes(Paths.get(PUBLIC_PATH + userEmail));
-      return convertBytesToPublicKey(encryptedPrivateKey);
+      return convertBytesToPrivateKey(encryptedPrivateKey);
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -59,7 +59,7 @@ public class UsersManager {
     }
   }
 
-  public static RSAPublicKey convertBytesToPublicKey(byte[] publicKeyBytes) {
+  public static RSAPublicKey convertBytesToPrivateKey(byte[] publicKeyBytes) {
     if (keyFactory == null) {
       initKeyFactory();
     }
