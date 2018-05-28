@@ -238,12 +238,12 @@
             <children>
                 <MenuBar HBox.hgrow="ALWAYS">
                     <menus>
-                        <Menu fx:id="menuOProgram" mnemonicParsing="false" text="O programie">
+                        <Menu fx:id="menuOProgram" mnemonicParsing="false" text="Program">
                             <items>
                                 <MenuItem fx:id="creatorsMenuItem" mnemonicParsing="false" text="Twórcy"/>
                                 <MenuItem fx:id="algorithmDescriptionMenuItem" mnemonicParsing="false"
                                           text="Opis algorytmu"/>
-                                <MenuItem fx:id="createRsaMenuItem" mnemonicParsing="false" text="Generuj klucze RSA"
+                                <MenuItem fx:id="createRsaMenuItem" mnemonicParsing="false" text="Dodaj użytkownika"
                                           onAction="#openAddReceiverStage"/>
                             </items>
                         </Menu>

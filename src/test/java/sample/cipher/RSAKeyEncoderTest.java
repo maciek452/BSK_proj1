@@ -11,12 +11,11 @@ import java.security.NoSuchAlgorithmException;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
-import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 
 import static org.junit.Assert.*;
 
-public class SHAKeyEncoderTest {
+public class RSAKeyEncoderTest {
 
     @Test
     public void keyEncryptionTest() throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
@@ -31,11 +30,11 @@ public class SHAKeyEncoderTest {
         byte[] privateKeyBytes = keysGenerator.getPair().getPrivate().getEncoded();
         byte[] publicKeyBytes = keysGenerator.getPair().getPublic().getEncoded();
 
-        byte[] encryptedPrivateKey = SHAKeyEncoder.encode(privateKeyBytes, passsword);
+        byte[] encryptedPrivateKey = RSAKeyEncoder.encode(privateKeyBytes, passsword);
         Files.write(path, encryptedPrivateKey);
         byte[] readPrivateKey = Files.readAllBytes(path);
         Files.delete(path);
-        RSAPrivateKey encodedPrivateKey = SHAKeyEncoder.decode(readPrivateKey, passsword);
+        RSAPrivateKey encodedPrivateKey = RSAKeyEncoder.decode(readPrivateKey, passsword);
 
         KeyFactory keyFactory = KeyFactory.getInstance("RSA");
 
